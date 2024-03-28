@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Pave a way for a custom rulesets, updated as of March 28th 2024
+desc: Last updated on March 29th 2024, 02:25
 
 
 dns: #!replace
@@ -109,7 +109,8 @@ dns: #!replace
     canvaz.scdn.co: 1.1.1.1
     +.tiktokv.com: 1.1.1.1
     +.apple.com: 1.1.1.1
-    +.meituan.net: 114.114.114.114
+    +.meituan.net: 223.5.5.5
+    +.d.meituan.net: 223.5.5.5
     
 proxy-groups: #!replace
   - name: WannaFlix
@@ -183,8 +184,8 @@ rules: #!replace
   - IP-CIDR,114.112.0.0/16,DIRECT #eleme ip ranges
   - DOMAIN-KEYWORD,whatsapp,Final
   - DOMAIN-SUFFIX,spotify.com,DIRECT
-  - DOMAIN,canvaz.scdn.co,Final
   - DOMAIN-SUFFIX,scdn.co,DIRECT
+  - DOMAIN,canvaz.scdn.co,Final
   - DOMAIN-KEYWORD,spotify,DIRECT
   - DOMAIN,content1.steampowered.com,DIRECT
   - DOMAIN,content2.steampowered.com,DIRECT
