@@ -117,8 +117,8 @@ proxy-groups: #!replace
   - name: 🖥 OpenAI
     type: select
     proxies:
-      - DIRECT
       - WannaFlix
+      - DIRECT
     use: 
       - wannaflix
 
@@ -141,8 +141,8 @@ proxy-groups: #!replace
   - name: 🖼️ Instagram
     type: select
     proxies:
-      - DIRECT
       - WannaFlix
+      - DIRECT
     use: 
       - wannaflix
 
@@ -157,8 +157,8 @@ proxy-groups: #!replace
   - name: 🍎 Apple
     type: select
     proxies:
-      - DIRECT
       - WannaFlix
+      - DIRECT
     use: 
       - wannaflix
       
@@ -167,12 +167,6 @@ proxy-groups: #!replace
     proxies:
       - REJECT
       - DIRECT
-
-  - name: DIRECT
-    type: select
-    proxies:
-      - DIRECT
-      - WannaFlix
 
   - name: Final
     type: select
