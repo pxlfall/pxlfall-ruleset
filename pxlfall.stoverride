@@ -109,8 +109,8 @@ dns: #!replace
     canvaz.scdn.co: 1.1.1.1
     +.tiktokv.com: 1.1.1.1
     +.apple.com: 1.1.1.1
-    +.meituan.net: 223.5.5.5
-    +.d.meituan.net: 223.5.5.5
+    +.meituan.net: 180.76.76.76
+    +.d.meituan.net: 180.76.76.76
     
 proxy-groups: #!replace
   - name: WannaFlix
