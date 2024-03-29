@@ -1,14 +1,15 @@
 name: pxlfall's custom ruleset
-desc: Last updated on March 29th 2024, 02:25
+desc: Last updated on March 29th 2024, 19:46
 
 
 dns: #!replace
-  enable: true
+  prefer-h3: true
   listen: 127.0.0.1:8853
   default-nameserver:
     - 223.5.5.5
     - 114.114.114.114
-  ipv6: false
+    - system
+  ipv6: true
   enhanced-mode: fake-ip
   fake-ip-filter:
     - '*.lan'
@@ -85,12 +86,17 @@ dns: #!replace
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    - quic://dns.adguard.com:853
+    - doq://test.dns.nextdns.io:853
+    - system
   fallback:
-    - https://dns.rubyfish.cn/dns-query
-    - https://public.dns.iij.jp/dns-query
-    - tls://8.8.4.4
+    - tls://8.8.8.8
+    - tls://1.1.1.1
   fallback-filter:
     geoip: true
+    geoip-code: CN
+    geosite:
+      - gfw
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
@@ -99,18 +105,20 @@ dns: #!replace
       - +.google.com
       - +.facebook.com
       - +.twitter.com
+      - +.x.com
+      - +.vk.com
+      - +.scdn.co
+      - +.tiktokv.com
+      - +.apple.com
       - +.youtube.com
-      - +.xn--ngstr-lra8j.com
       - +.google.cn
       - +.googleapis.cn
       - +.googleapis.com
       - +.gvt1.com
   nameserver-policy:
-    canvaz.scdn.co: 1.1.1.1
-    +.tiktokv.com: 1.1.1.1
-    +.apple.com: 1.1.1.1
     +.meituan.net: 180.76.76.76
     +.d.meituan.net: 180.76.76.76
+    'geosite:cn': https://doh.pub/dns-query
     
 proxy-groups: #!replace
   - name: WannaFlix
