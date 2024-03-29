@@ -116,8 +116,9 @@ dns: #!replace
       - +.googleapis.com
       - +.gvt1.com
   nameserver-policy:
-    +.meituan.net: 180.76.76.76
-    +.d.meituan.net: 180.76.76.76
+    +.meituan.net: 111.206.147.210
+    +.meituan.com: 111.206.147.210
+    +.neixin.cn: 114.114.114.114
     'geosite:cn': https://doh.pub/dns-query
     
 proxy-groups: #!replace
@@ -187,6 +188,9 @@ proxy-groups: #!replace
       - DIRECT
 
 rules: #!replace
+  - DOMAIN-KEYWORD,kuaishou,DIRECT
+  - DOMAIN-SUFFIX,tec73.com,DIRECT
+  - DOMAIN-SUFFIX,dianping.com,DIRECT
   - DOMAIN-SUFFIX,chat.openai.com,🖥 OpenAI
   - DOMAIN-SUFFIX,ele.me,DIRECT
   - IP-CIDR,114.112.0.0/16,DIRECT #eleme ip ranges
@@ -1300,6 +1304,7 @@ rules: #!replace
   - DOMAIN-SUFFIX,luojilab.com,DIRECT
   - DOMAIN-SUFFIX,maoyun.tv,DIRECT
   - DOMAIN-SUFFIX,meituan.net,DIRECT
+  - DOMAIN-SUFFIX,meituan.com,DIRECT
   - DOMAIN-SUFFIX,mobike.com,DIRECT
   - DOMAIN-SUFFIX,mubu.com,DIRECT
   - DOMAIN-SUFFIX,myzaker.com,DIRECT
