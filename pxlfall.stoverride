@@ -1,12 +1,12 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 01:44
+desc: Last updated on April 2nd 2024, 01:54
 
-http:
-  mitm:
-    - '+.d.meituan.net'
-    - '+.d.meituan.com'
-  url-rewrite:
-    - ^http(s)?:\/\/(.*).d.meituan.net http$1://$2.dreport.meituan.net 302
+hosts: #fix meituan
+  '*.clash.dev': 127.0.0.1
+  'alpha.clash.dev': '::1'
+  'metrics-picture.d.meituan.net': 103.37.152.48
+  'maplocatesdksnapshot.d.meituan.net': 103.37.152.48
+  'route-stats.d.meituan.net': 101.236.69.94
 
 dns: #!replace
   prefer-h3: true
