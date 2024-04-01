@@ -1,5 +1,12 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 01:23
+desc: Last updated on April 2nd 2024, 01:39
+
+http:
+  mitm:
+    - '+.d.meituan.net'
+    - '+.d.meituan.com'
+  url-rewrite:
+    - ^http(s)?:\/\/(.*).d.meituan.net http$1://$2.dreport.meituan.net 302
 
 dns: #!replace
   prefer-h3: true
@@ -179,6 +186,7 @@ proxy-groups: #!replace
       - WannaFlix
       - DIRECT
 rules: #!replace
+  - DOMAIN,metrics-picture.meituan.net,REJECT,no-track
   - DOMAIN-SUFFIX,adv.gacloudltd.co,REJECT,no-track
   - DOMAIN-SUFFIX,adsystem.com,REJECT,no-track
   - DOMAIN-KEYWORD,admarvel,REJECT,no-track
