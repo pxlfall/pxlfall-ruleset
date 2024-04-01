@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 1st 2024, 11:46
+desc: Last updated on April 1st 2024, 11:55
 
 dns: #!replace
   prefer-h3: true
@@ -119,63 +119,52 @@ dns: #!replace
     +.meituan.net: 111.206.147.210
     +.meituan.com: 111.206.147.210
     +.neixin.cn: 114.114.114.114
-rule-providers: #!replace
-  direct:
+rule-providers:
+  directrules:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
     interval: 86400
-
-  reject:
+  rejectrules:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
     interval: 86400
-
   apple:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
     interval: 86400
-
   icloud:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
     interval: 86400
-
   google:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
     interval: 86400
-
-  proxy:
+  proxyrules:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
     interval: 86400
-
   gfw:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
     interval: 86400
-
   private:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
     interval: 86400
-
   tld-not-cn:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
     interval: 86400
-
   telegramcidr:
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
     interval: 86400
-
   cncidr:
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
     interval: 86400
-
- lancidr:
+  lancidr:
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
     interval: 86400
@@ -186,18 +175,17 @@ rules: #!replace
   - DOMAIN-KEYWORD,xvideos,PROXY
   - DOMAIN-SUFFIX,pornolab.net,PROXY
   - DOMAIN-SUFFIX,wannaflix.net,DIRECT,no-track
-  - RULE-SET,direct,DIRECT,no-track
-  - RULE-SET,reject,REJECT,no-track
+  - RULE-SET,directrules,DIRECT,no-track
+  - RULE-SET,rejectrules,REJECT,no-track
   - RULE-SET,apple,DIRECT,no-track
   - RULE-SET,icloud,DIRECT,no-track
   - RULE-SET,google,PROXY
   - RULE-SET,gfw,PROXY
-  - RULE-SET,proxy,PROXY
+  - RULE-SET,proxyrules,PROXY
   - RULE-SET,tld-not-cn,PROXY
   - RULE-SET,private,DIRECT,no-track
   - RULE-SET,telegramcidr,PROXY
   - RULE-SET,cncidr,DIRECT,no-track
   - RULE-SET,lancidr,DIRECT,no-track
-  - GEOIP,LAN,DIRECT,no-track
   - GEOIP,CN,DIRECT,no-track
   - MATCH,PROXY
