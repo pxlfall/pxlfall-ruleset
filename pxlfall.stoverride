@@ -1,7 +1,6 @@
 name: pxlfall's custom ruleset
 desc: Last updated on April 1st 2024, 11:46
 
-
 dns: #!replace
   prefer-h3: true
   listen: 127.0.0.1:8853
@@ -120,7 +119,6 @@ dns: #!replace
     +.meituan.net: 111.206.147.210
     +.meituan.com: 111.206.147.210
     +.neixin.cn: 114.114.114.114
-
 rule-providers: #!replace
   direct:
     behavior: domain
@@ -181,26 +179,25 @@ rule-providers: #!replace
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
     interval: 86400
-
 rules: #!replace
-- DOMAIN-SUFFIX,mangadex.org,PROXY
-- DOMAIN-SUFFIX,nhentai.net,PROXY
-- DOMIAN-KEYWORD,eporner,PROXY
-- DOMAIN-KEYWORD,xvideos,PROXY
-- DOMAIN-SUFFIX,pornolab.net,PROXY
-- DOMAIN-SUFFIX,wannaflix.net,DIRECT,no-track
-- RULE-SET,direct,DIRECT,no-track
-- RULE-SET,reject,REJECT,no-track
-- RULE-SET,apple,DIRECT,no-track
-- RULE-SET,icloud,DIRECT,no-track
-- RULE-SET,google,PROXY
-- RULE-SET,gfw,PROXY
-- RULE-SET,proxy,PROXY
-- RULE-SET,tld-not-cn,PROXY
-- RULE-SET,private,DIRECT,no-track
-- RULE-SET,telegramcidr,PROXY
-- RULE-SET,cncidr,DIRECT,no-track
-- RULE-SET,lancidr,DIRECT,no-track
-- GEOIP,LAN,DIRECT,no-track
-- GEOIP,CN,DIRECT,no-track
-- MATCH,PROXY
+  - DOMAIN-SUFFIX,mangadex.org,PROXY
+  - DOMAIN-SUFFIX,nhentai.net,PROXY
+  - DOMIAN-KEYWORD,eporner,PROXY
+  - DOMAIN-KEYWORD,xvideos,PROXY
+  - DOMAIN-SUFFIX,pornolab.net,PROXY
+  - DOMAIN-SUFFIX,wannaflix.net,DIRECT,no-track
+  - RULE-SET,direct,DIRECT,no-track
+  - RULE-SET,reject,REJECT,no-track
+  - RULE-SET,apple,DIRECT,no-track
+  - RULE-SET,icloud,DIRECT,no-track
+  - RULE-SET,google,PROXY
+  - RULE-SET,gfw,PROXY
+  - RULE-SET,proxy,PROXY
+  - RULE-SET,tld-not-cn,PROXY
+  - RULE-SET,private,DIRECT,no-track
+  - RULE-SET,telegramcidr,PROXY
+  - RULE-SET,cncidr,DIRECT,no-track
+  - RULE-SET,lancidr,DIRECT,no-track
+  - GEOIP,LAN,DIRECT,no-track
+  - GEOIP,CN,DIRECT,no-track
+  - MATCH,PROXY
