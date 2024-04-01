@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 1st 2024, 12:17
+desc: Last updated on April 2nd 2024, 01:23
 
 dns: #!replace
   prefer-h3: true
