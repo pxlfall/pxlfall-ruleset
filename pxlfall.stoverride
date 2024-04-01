@@ -114,10 +114,10 @@ dns: #!replace
       - +.googleapis.cn
       - +.googleapis.com
       - +.gvt1.com
-  nameserver-policy:
+  nameserver-policy: #!replace
     canvaz.scdn.co: 1.1.1.1
-    +.meituan.net: 111.206.147.210
-    +.meituan.com: 111.206.147.210
+    +.d.meituan.net: 114.114.114.114
+    +.d.meituan.com: 114.114.114.114
     +.neixin.cn: 114.114.114.114
 rule-providers:
   directrules:
