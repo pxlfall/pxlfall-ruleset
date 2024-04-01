@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 1st 2024, 09:58
+desc: Last updated on April 1st 2024, 11:46
 
 
 dns: #!replace
@@ -121,7 +121,7 @@ dns: #!replace
     +.meituan.com: 111.206.147.210
     +.neixin.cn: 114.114.114.114
 
-rule-providers:
+rule-providers: #!replace
   direct:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
