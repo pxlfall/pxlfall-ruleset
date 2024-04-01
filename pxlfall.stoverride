@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 1st 2024, 11:55
+desc: Last updated on April 1st 2024, 12:10
 
 dns: #!replace
   prefer-h3: true
@@ -168,6 +168,16 @@ rule-providers:
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
     interval: 86400
+proxy-groups: #!replace
+  - name: WannaFlix
+    type: select
+    use:
+      - wannaflix
+  - name: Final
+    type: select
+    proxies:
+      - WannaFlix
+      - DIRECT
 rules: #!replace
   - DOMAIN-SUFFIX,mangadex.org,PROXY
   - DOMAIN-SUFFIX,nhentai.net,PROXY
