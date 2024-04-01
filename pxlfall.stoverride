@@ -1,5 +1,6 @@
 name: pxlfall's custom ruleset
 desc: Last updated on April 2nd 2024, 01:44
+
 http:
   mitm:
     - '+.d.meituan.net'
