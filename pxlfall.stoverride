@@ -194,14 +194,14 @@ proxy-groups: #!replace
     interval: 300
 
   - name: TikTok
-    type: select
+    type: fallback
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png'
     proxies:
       - Main Server
       - DIRECT
     use:
       - wannaflix
-    url: 'http://frontier.tiktok.v:443/'
+    url: 'https://www.tiktok.com'
     interval: 300
 
   - name: Final
