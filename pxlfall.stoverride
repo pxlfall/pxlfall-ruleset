@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 13:18
+desc: Last updated on April 2nd 2024, 13:39
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -196,6 +196,7 @@ proxy-groups: #!replace
       - WannaFlix
       - DIRECT
 rules: #!replace
+  - IP-CIDR,17.188.143.7/32,DIRECT,no-resolve
   - DOMAIN,metrics-picture.meituan.net,REJECT
   - DOMAIN-SUFFIX,adv.gacloudltd.co,REJECT
   - DOMAIN-SUFFIX,adsystem.com,REJECT
@@ -406,8 +407,8 @@ rules: #!replace
   - RULE-SET,gfw,Final
   - RULE-SET,tld-not-cn,Final
   - RULE-SET,private,DIRECT
-  - RULE-SET,telegramcidr,Final
-  - RULE-SET,cncidr,DIRECT
-  - RULE-SET,lancidr,DIRECT
-  - GEOIP,CN,DIRECT
+  - RULE-SET,telegramcidr,Final,no-resolve
+  - RULE-SET,cncidr,DIRECT,no-resolve
+  - RULE-SET,lancidr,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT,no-resolve
   - MATCH,Final
