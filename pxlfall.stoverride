@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 12:38
+desc: Last updated on April 2nd 2024, 12:41
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -121,7 +121,7 @@ dns: #!replace
     '+.tsumino.com': 'https://1.1.1.1/dns-query'
     '+.nhentai.net': 'https://8.8.8.8/dns-query'
     '+.pornhub.com': 'https://8.8.8.8/dns-query'
-    '+.pornolab.net': 'https://1.1.1.1/dns-query
+    '+.pornolab.net': 'https://1.1.1.1/dns-query'
     '+.eporner.com': 'https://1.1.1.1/dns-query'
     '+.xvideos.com': 'https://1.1.1.1/dns-query'
     '+.tiktokv.com': 'https://1.1.1.1/dns-query'
