@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 12:41
+desc: Last updated on April 2nd 2024, 13:18
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -9,6 +9,7 @@ hosts: #fix meituan
   'route-stats.d.meituan.net': 101.236.69.94
 dns: #!replace
   enable: true
+  ipv6: false
   listen: 0.0.0.0:53
   default-nameserver:
     - 223.5.5.5
@@ -119,7 +120,12 @@ dns: #!replace
     '+.d.meituan.com': '114.114.114.114'
     '+.neixin.cn': '114.114.114.114'
     '+.tsumino.com': 'https://1.1.1.1/dns-query'
-    '+.nhentai.net': 'https://8.8.8.8/dns-query'
+    '+.nhentai.net': 'https://dns10.quad9.net/dns-query'
+    'nhentai.net': 'https://dns10.quad9.net/dns-query'
+    '+.nhentai.com': 'https://dns10.quad9.net/dns-query'
+    '+.nhentaimg.com': 'https://dns10.quad9.net/dns-query'
+    '+.nhentai.to': 'https://dns10.quad9.net/dns-query'
+    '+.nhentai.xxx': 'https://dns10.quad9.net/dns-query'
     '+.pornhub.com': 'https://8.8.8.8/dns-query'
     '+.pornolab.net': 'https://1.1.1.1/dns-query'
     '+.eporner.com': 'https://1.1.1.1/dns-query'
