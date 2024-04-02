@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 01:54
+desc: Last updated on April 2nd 2024, 09:40
 
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -129,51 +129,51 @@ dns: #!replace
 rule-providers:
   directrules:
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/direct.txt"
     interval: 86400
   rejectrules:
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/reject.txt"
     interval: 86400
   apple:
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/apple.txt"
     interval: 86400
   icloud:
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/icloud.txt"
     interval: 86400
   google:
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/google.txt"
     interval: 86400
   proxyrules:
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/proxy.txt"
     interval: 86400
   gfw:
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/gfw.txt"
     interval: 86400
   private:
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/private.txt"
     interval: 86400
   tld-not-cn:
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/tld-not-cn.txt"
     interval: 86400
   telegramcidr:
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/telegramcidr.txt"
     interval: 86400
   cncidr:
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/cncidr.txt"
     interval: 86400
   lancidr:
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/lancidr.txt"
     interval: 86400
 proxy-groups: #!replace
   - name: WannaFlix
@@ -387,17 +387,17 @@ rules: #!replace
   - DOMAIN-SUFFIX,adsforallmedia.com,REJECT
   - DOMAIN-SUFFIX,adshot.de,REJECT
   - DOMAIN-SUFFIX,wannaflix.net,DIRECT
-  - RULE-SET,proxyrules,PROXY
+  - RULE-SET,proxyrules,Final
   - RULE-SET,directrules,DIRECT
   - RULE-SET,rejectrules,REJECT
   - RULE-SET,apple,DIRECT
   - RULE-SET,icloud,DIRECT
-  - RULE-SET,google,PROXY
-  - RULE-SET,gfw,PROXY
-  - RULE-SET,tld-not-cn,PROXY
-  - RULE-SET,private,DIRECT,no-track
-  - RULE-SET,telegramcidr,PROXY
-  - RULE-SET,cncidr,DIRECT,no-track
-  - RULE-SET,lancidr,DIRECT,no-track
-  - GEOIP,CN,DIRECT,no-track
-  - MATCH,PROXY
+  - RULE-SET,google,Final
+  - RULE-SET,gfw,Final
+  - RULE-SET,tld-not-cn,Final
+  - RULE-SET,private,DIRECT
+  - RULE-SET,telegramcidr,Final
+  - RULE-SET,cncidr,DIRECT
+  - RULE-SET,lancidr,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,Final
