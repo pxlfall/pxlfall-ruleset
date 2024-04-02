@@ -1,22 +1,21 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 12:00
-
+desc: Last updated on April 2nd 2024, 12:38
+ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
   'metrics-picture.d.meituan.net': 103.37.152.48
   'maplocatesdksnapshot.d.meituan.net': 103.37.152.48
   'route-stats.d.meituan.net': 101.236.69.94
-
 dns: #!replace
-  prefer-h3: true
-  listen: 127.0.0.1:8853
+  enable: true
+  listen: 0.0.0.0:53
   default-nameserver:
     - 223.5.5.5
     - 114.114.114.114
     - system
-  ipv6: true
   enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - '*.lan'
     - stun.*.*.*
@@ -131,7 +130,6 @@ dns: #!replace
     '+.userapi.com': 'https://1.1.1.1/dns-query'
     '+.vk-portal.net': 'https://1.1.1.1/dns-query'
     '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
-
 rule-providers:
   directrules:
     behavior: domain
