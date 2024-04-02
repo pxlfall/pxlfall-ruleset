@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 14:55
+desc: Last updated on April 2nd 2024, 14:59
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
