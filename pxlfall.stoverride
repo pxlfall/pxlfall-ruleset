@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 11:50
+desc: Last updated on April 2nd 2024, 12:00
 
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -15,9 +15,8 @@ dns: #!replace
     - 223.5.5.5
     - 114.114.114.114
     - system
-  ipv6: false
+  ipv6: true
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - '*.lan'
     - stun.*.*.*
@@ -116,22 +115,22 @@ dns: #!replace
       - '+.googleapis.com'
       - '+.gvt1.com'
   nameserver-policy:
-    '+.scdn.co': '1.1.1.1'
+    '+.scdn.co': 'https://1.1.1.1/dns-query'
     '+.d.meituan.net': '114.114.114.114'
     '+.d.meituan.com': '114.114.114.114'
     '+.neixin.cn': '114.114.114.114'
-    '+.tsumino.*': '1.1.1.1'
-    '+.nhentai.*': '1.1.1.1'
-    '+.pornhub.*': '1.1.1.1'
-    '+.pornolab.*': '1.1.1.1'
-    '+.eporner.*': '1.1.1.1'
-    '+.xvideos.*': '1.1.1.1'
-    '+.tiktokv.com': '1.1.1.1'
-    '+.x.com': '1.1.1.1'
-    '+.vk.com': '1.1.1.1'
-    '+.userapi.com': '1.1.1.1'
-    '+.vk-portal.net': '1.1.1.1'
-    '+.vkuservideo.net': '1.1.1.1'
+    '+.tsumino.com': 'https://1.1.1.1/dns-query'
+    '+.nhentai.net': 'https://8.8.8.8/dns-query'
+    '+.pornhub.com': 'https://8.8.8.8/dns-query'
+    '+.pornolab.net': 'https://1.1.1.1/dns-query
+    '+.eporner.com': 'https://1.1.1.1/dns-query'
+    '+.xvideos.com': 'https://1.1.1.1/dns-query'
+    '+.tiktokv.com': 'https://1.1.1.1/dns-query'
+    '+.x.com': 'https://1.1.1.1/dns-query'
+    '+.vk.com': 'https://1.1.1.1/dns-query'
+    '+.userapi.com': 'https://1.1.1.1/dns-query'
+    '+.vk-portal.net': 'https://1.1.1.1/dns-query'
+    '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
 
 rule-providers:
   directrules:
