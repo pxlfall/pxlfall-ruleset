@@ -5114,7 +5114,6 @@ payload:
   - '+.tibetwrites.org'
   - '+.ticket.com.tw'
   - '+.tigervpn.com'
-  - '+.tiktok.com'
   - '+.tiltbrush.com'
   - '+.timdir.com'
   - '+.time.com'

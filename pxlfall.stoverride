@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 13:39
+desc: Last updated on April 2nd 2024, 14:33
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -186,16 +186,42 @@ rule-providers:
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/lancidr.txt"
     interval: 86400
 proxy-groups: #!replace
-  - name: WannaFlix
+  - name: Main Server
     type: select
     use:
       - wannaflix
+
+  - name: TikTok
+    type: select
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png'
+    proxies:
+      - Main Server
+      - DIRECT
+    use:
+      - wannaflix
+
   - name: Final
     type: select
     proxies:
-      - WannaFlix
+      - Main Server
       - DIRECT
+
 rules: #!replace
+  - DOMAIN-SUFFIX,tiktok.com,TikTok
+  - DOMAIN-SUFFIX,tiktokcdn-us.com,TikTok
+  - DOMAIN-SUFFIX,tiktokcdn.com,TikTok
+  - DOMAIN-SUFFIX,tiktokd.net,TikTok
+  - DOMAIN-SUFFIX,tiktokd.org,TikTok
+  - DOMAIN-SUFFIX,tiktokv.com,TikTok
+  - DOMAIN-SUFFIX,tiktokv.us,TikTok
+  - DOMAIN-SUFFIX,tiktokw.us,TikTok
+  - DOMAIN-KEYWORD,tiktokcdn,TikTok
+  - DOMAIN-SUFFIX,byteoversea.com,TikTok
+  - DOMAIN-SUFFIX,tik-tokapi.com,TikTok
+  - DOMAIN-SUFFIX,musical.ly,TikTok
+  - DOMAIN-SUFFIX,muscdn.com,TikTok
+  - DOMAIN-SUFFIX,ibyeimg.com,TikTok
+  - DOMAIN-SUFFIX,ibytedtos.com,TikTok
   - IP-CIDR,17.188.143.7/32,DIRECT,no-resolve
   - DOMAIN,metrics-picture.meituan.net,REJECT
   - DOMAIN-SUFFIX,adv.gacloudltd.co,REJECT
