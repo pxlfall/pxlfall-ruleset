@@ -198,11 +198,11 @@ proxy-groups: #!replace
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png'
     proxies:
       - Main Server
-      - DIRECT
     use:
       - wannaflix
-    url: 'https://www.tiktok.com'
-    interval: 300
+    lazy: true
+    filter: 'CHINA'
+    interval: 5
 
   - name: Final
     type: select
