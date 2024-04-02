@@ -1,4 +1,5 @@
 payload:
+  - '+.nhentaimg.com'
   - 'download.mlcc.google.com'
   - 'dl.google.com'
   - 'dl.l.google.com'

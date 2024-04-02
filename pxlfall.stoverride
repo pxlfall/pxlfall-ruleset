@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 09:40
+desc: Last updated on April 2nd 2024, 11:50
 
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -15,8 +15,9 @@ dns: #!replace
     - 223.5.5.5
     - 114.114.114.114
     - system
-  ipv6: true
+  ipv6: false
   enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - '*.lan'
     - stun.*.*.*
@@ -89,43 +90,49 @@ dns: #!replace
     - '*.ipv6.microsoft.com'
     - '*.*.xboxlive.com'
     - speedtest.cros.wr.pvp.net
+    - '+.scdn.co'
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-    - quic://dns.adguard.com:853
-    - doq://test.dns.nextdns.io:853
     - system
+  skip-cert-verify: true
   fallback:
-    - tls://8.8.8.8
-    - tls://1.1.1.1
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
   fallback-filter:
     geoip: true
     geoip-code: CN
-    geosite:
-      - gfw
     ipcidr:
       - 240.0.0.0/4
-      - 0.0.0.0/32
       - 127.0.0.1/32
     domain:
-      - +.google.com
-      - +.facebook.com
-      - +.twitter.com
-      - +.x.com
-      - +.vk.com
-      - +.scdn.co
-      - +.tiktokv.com
-      - +.apple.com
-      - +.youtube.com
-      - +.google.cn
-      - +.googleapis.cn
-      - +.googleapis.com
-      - +.gvt1.com
-  nameserver-policy: #!replace
-    +.scdn.co: 1.1.1.1
-    +.d.meituan.net: 114.114.114.114
-    +.d.meituan.com: 114.114.114.114
-    +.neixin.cn: 114.114.114.114
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.twitter.com'
+      - '+.apple.com'
+      - '+.youtube.com'
+      - '+.google.cn'
+      - '+.googleapis.cn'
+      - '+.googleapis.com'
+      - '+.gvt1.com'
+  nameserver-policy:
+    '+.scdn.co': '1.1.1.1'
+    '+.d.meituan.net': '114.114.114.114'
+    '+.d.meituan.com': '114.114.114.114'
+    '+.neixin.cn': '114.114.114.114'
+    '+.tsumino.*': '1.1.1.1'
+    '+.nhentai.*': '1.1.1.1'
+    '+.pornhub.*': '1.1.1.1'
+    '+.pornolab.*': '1.1.1.1'
+    '+.eporner.*': '1.1.1.1'
+    '+.xvideos.*': '1.1.1.1'
+    '+.tiktokv.com': '1.1.1.1'
+    '+.x.com': '1.1.1.1'
+    '+.vk.com': '1.1.1.1'
+    '+.userapi.com': '1.1.1.1'
+    '+.vk-portal.net': '1.1.1.1'
+    '+.vkuservideo.net': '1.1.1.1'
+
 rule-providers:
   directrules:
     behavior: domain
