@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 4th 2024, 03:48
+desc: Last updated on April 4th 2024, 04:09
 ipv6: false #!replace
 script:
   shortcuts:
@@ -270,7 +270,7 @@ proxy-groups: #!replace
 
   - name: WhatsApp
     type: select
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/WhatsApp.png'
+    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/whatsapp.png'
     url: 'http://www.whatsapp.com'
     proxies:
       - Main Server
@@ -296,15 +296,15 @@ proxy-groups: #!replace
 
   - name: VK
     type: select
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/VK.png'
+    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/vk.png'
     url: 'http://www.vk.com'
     proxies:
-      - Main Server
       - DIRECT
+      - Main Server
     use:
       - wannaflix
     lazy: true
-    filter: 'CHINA'
+    filter: 'CHINA|DIRECT'
     include-all: true
     interval: 300
 
