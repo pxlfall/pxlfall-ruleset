@@ -165,6 +165,10 @@ rule-providers:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/gfw.txt"
     interval: 86400
+  telegramdomain:
+    behavior: domain
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/telegram.txt"
+    interval: 86400
   private:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/private.txt"
@@ -197,6 +201,19 @@ proxy-groups: #!replace
     type: url-test
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png'
     benchmark-url: 'http://tiktok.com'
+    proxies:
+      - Main Server
+    use:
+      - wannaflix
+    lazy: true
+    filter: 'CHINA'
+    include-all: true
+    interval: 300
+
+  - name: Telegram
+    type: url-test
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png'
+    benchmark-url: 'http://telegram.org'
     proxies:
       - Main Server
     use:
@@ -239,7 +256,8 @@ rules: #!replace
   - RULE-SET,gfw,Final
   - RULE-SET,tld-not-cn,Final
   - RULE-SET,private,DIRECT
-  - RULE-SET,telegramcidr,Final,no-resolve
+  - RULE-SET,telegramcidr,Telegram,no-resolve
+  - RULE-SET,telegramdomain,Telegram
   - RULE-SET,cncidr,DIRECT,no-resolve
   - RULE-SET,lancidr,DIRECT,no-resolve
   - GEOIP,CN,DIRECT,no-resolve

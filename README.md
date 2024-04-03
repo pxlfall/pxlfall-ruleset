@@ -6,9 +6,9 @@
 - [ ] Add 'url-test' proxy group for the following:
     - [x] TikTok
     - [ ] YouTube
-    - [ ] /(Optional) Spotify
+    - [ ] \(Optional) Spotify
     - [ ] VK
-    - [ ] Telegran
+    - [x] Telegran
     - [ ] Instagram (use only music-supported servers)
     - [ ] WhatsApp (make sure audio calls have no issues)
     - [ ] Twitch
