@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 4th 2024, 04:09
+desc: Last updated on April 4th 2024, 04:25
 ipv6: false #!replace
 script:
   shortcuts:
@@ -139,7 +139,7 @@ dns: #!replace
     '+.userapi.com': 'https://1.1.1.1/dns-query'
     '+.vk-portal.net': 'https://1.1.1.1/dns-query'
     '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
-  follow-rule: true
+  follow-rule: false # disabled due to poor performance and log clutter with errors
 rule-providers:
   directrules:
     behavior: domain
