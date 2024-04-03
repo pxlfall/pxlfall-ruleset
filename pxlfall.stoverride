@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 4th 2024, 03:43
+desc: Last updated on April 4th 2024, 03:48
 ipv6: false #!replace
 script:
   shortcuts:
@@ -144,51 +144,55 @@ rule-providers:
   directrules:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/direct.txt"
-    interval: 86400
+    interval: 345600
   rejectrules:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/reject.txt"
-    interval: 86400
+    interval: 345600
   apple:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/apple.txt"
-    interval: 86400
+    interval: 345600
   icloud:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/icloud.txt"
-    interval: 86400
+    interval: 345600
   google:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/google.txt"
-    interval: 86400
+    interval: 345600
   proxyrules:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/proxy.txt"
-    interval: 86400
+    interval: 345600
   gfw:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/gfw.txt"
-    interval: 86400
+    interval: 345600
   telegramdomain:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/telegram.txt"
-    interval: 86400
+    interval: 345600
   private:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/private.txt"
-    interval: 86400
+    interval: 345600
   telegramcidr:
     behavior: ipcidr
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/telegramcidr.txt"
-    interval: 86400
+    interval: 345600
   cncidr:
     behavior: ipcidr
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/cncidr.txt"
-    interval: 86400
+    interval: 345600
   lancidr:
     behavior: ipcidr
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/lancidr.txt"
-    interval: 86400
+    interval: 345600
+  tiktok:
+    behavior: domain
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/tiktok.txt"
+    interval: 345600
 
 proxy-groups: #!replace
   - name: Main Server
@@ -199,7 +203,7 @@ proxy-groups: #!replace
     interval: 600
 
   - name: Netflix
-    type: url-test
+    type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png'
     url: 'http://www.netflix.com'
     proxies:
@@ -212,13 +216,13 @@ proxy-groups: #!replace
     interval: 300
 
   - name: TikTok
-    type: url-test
+    type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png'
     proxies:
       - Main Server
     use:
       - wannaflix
-    filter: 'CHINA'
+    filter: 'SS'
     include-all: true
     url: 'https://www.tiktok.com/'
     interval: 300
@@ -278,7 +282,7 @@ proxy-groups: #!replace
     interval: 300
 
   - name: Instagram
-    type: select
+    type: url-test
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png'
     url: 'http://www.instagram.com'
     proxies:
