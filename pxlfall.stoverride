@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 2nd 2024, 20:48
+desc: Last updated on April 4th 2024, 01:16
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -200,15 +200,15 @@ proxy-groups: #!replace
   - name: TikTok
     type: url-test
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png'
-    url: 'http://tiktok.com'
     proxies:
       - Main Server
     use:
       - wannaflix
-    lazy: true
     filter: 'CHINA'
     include-all: true
+    url: 'https://tiktok.com/'
     interval: 300
+    lazy: true
 
   - name: Telegram
     type: url-test
