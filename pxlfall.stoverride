@@ -264,11 +264,10 @@ proxy-groups: #!replace
     use:
       - wannaflix
     lazy: true
-    include-all: true
     interval: 300
 
   - name: WhatsApp
-    type: select
+    type: url-test
     icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/whatsapp.png'
     url: 'http://www.whatsapp.com'
     proxies:
@@ -303,7 +302,6 @@ proxy-groups: #!replace
     use:
       - wannaflix
     lazy: true
-    include-all: true
     interval: 300
 
   - name: Final
