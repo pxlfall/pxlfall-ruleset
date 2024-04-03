@@ -136,6 +136,7 @@ dns: #!replace
     '+.userapi.com': 'https://1.1.1.1/dns-query'
     '+.vk-portal.net': 'https://1.1.1.1/dns-query'
     '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
+  follow-rule: true
 rule-providers:
   directrules:
     behavior: domain
