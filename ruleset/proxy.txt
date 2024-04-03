@@ -20835,7 +20835,6 @@
   - '+.tttan.com'
   - '+.ttv.com.tw'
   - '+.ttvnw.net'
-  - '+.ttwstatic.com'
   - '+.tu8964.com'
   - '+.tubaholic.com'
   - '+.tube-pornomovs.com'

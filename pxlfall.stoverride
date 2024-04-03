@@ -1,6 +1,9 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 4th 2024, 01:16
+desc: Last updated on April 4th 2024, 03:43
 ipv6: false #!replace
+script:
+  shortcuts:
+    quic: network == 'udp' and dst_port == 443
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
@@ -121,7 +124,7 @@ dns: #!replace
     '+.neixin.cn': '114.114.114.114'
     '+.tsumino.com': 'https://1.1.1.1/dns-query'
     '+.nhentai.net': 'https://dns10.quad9.net/dns-query'
-    'nhentai.net': 'https://dns10.quad9.net/dns-query'
+    'www.nhentai.net': 'https://dns10.quad9.net/dns-query'
     '+.nhentai.com': 'https://dns10.quad9.net/dns-query'
     '+.nhentaimg.com': 'https://dns10.quad9.net/dns-query'
     '+.nhentai.to': 'https://dns10.quad9.net/dns-query'
@@ -174,10 +177,6 @@ rule-providers:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/private.txt"
     interval: 86400
-  tld-not-cn:
-    behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/tld-not-cn.txt"
-    interval: 86400
   telegramcidr:
     behavior: ipcidr
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/telegramcidr.txt"
@@ -190,6 +189,7 @@ rule-providers:
     behavior: ipcidr
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/lancidr.txt"
     interval: 86400
+
 proxy-groups: #!replace
   - name: Main Server
     type: select
@@ -197,6 +197,19 @@ proxy-groups: #!replace
       - wannaflix
     url: 'http://www.gstatic.com/generate_204'
     interval: 600
+
+  - name: Netflix
+    type: url-test
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png'
+    url: 'http://www.netflix.com'
+    proxies:
+      - Main Server
+    use:
+      - wannaflix
+    lazy: true
+    filter: 'CHINA'
+    include-all: true
+    interval: 300
 
   - name: TikTok
     type: url-test
@@ -207,16 +220,83 @@ proxy-groups: #!replace
       - wannaflix
     filter: 'CHINA'
     include-all: true
-    url: 'https://tiktok.com/'
+    url: 'https://www.tiktok.com/'
+    interval: 300
+    lazy: true
+
+  - name: YouTube
+    type: url-test
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png'
+    proxies:
+      - Main Server
+    use:
+      - wannaflix
+    filter: 'CHINA'
+    include-all: true
+    url: 'https://www.youtube.com/'
     interval: 300
     lazy: true
 
   - name: Telegram
-    type: url-test
+    type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png'
-    url: 'http://telegram.org'
+    url: 'http://www.telegram.org'
     proxies:
       - Main Server
+    use:
+      - wannaflix
+    lazy: true
+    filter: '^(?=.*SS)(?=.*CHINA)(?=.*(?:US|Japan|Germany|France|Canada|UK)).*$'
+    include-all: true
+    interval: 300
+
+  - name: Spotify
+    type: select
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Spotify.png'
+    url: 'http://www.spotify.com/'
+    proxies:
+      - Main Server
+      - DIRECT
+    use:
+      - wannaflix
+    lazy: true
+    filter: 'CHINA'
+    include-all: true
+    interval: 300
+
+  - name: WhatsApp
+    type: select
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/WhatsApp.png'
+    url: 'http://www.whatsapp.com'
+    proxies:
+      - Main Server
+    use:
+      - wannaflix
+    lazy: true
+    filter: 'SS'
+    include-all: true
+    interval: 300
+
+  - name: Instagram
+    type: select
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png'
+    url: 'http://www.instagram.com'
+    proxies:
+      - Main Server
+    use:
+      - wannaflix
+    lazy: true
+    filter: '^(?=.*CHINA)(?=.*(?:US|Japan|Germany|France|Canada|UK)).*$'
+    include-all: true
+    interval: 300
+
+  - name: VK
+    type: select
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/VK.png'
+    url: 'http://www.vk.com'
+    proxies:
+      - Main Server
+      - DIRECT
     use:
       - wannaflix
     lazy: true
@@ -231,35 +311,33 @@ proxy-groups: #!replace
       - DIRECT
 
 rules: #!replace
-  - DOMAIN-SUFFIX,tiktok.com,TikTok
-  - DOMAIN-SUFFIX,tiktokcdn-us.com,TikTok
-  - DOMAIN-SUFFIX,tiktokcdn.com,TikTok
-  - DOMAIN-SUFFIX,tiktokd.net,TikTok
-  - DOMAIN-SUFFIX,tiktokd.org,TikTok
-  - DOMAIN-SUFFIX,tiktokv.com,TikTok
-  - DOMAIN-SUFFIX,tiktokv.us,TikTok
-  - DOMAIN-SUFFIX,tiktokw.us,TikTok
-  - DOMAIN-KEYWORD,tiktokcdn,TikTok
-  - DOMAIN-SUFFIX,byteoversea.com,TikTok
-  - DOMAIN-SUFFIX,tik-tokapi.com,TikTok
-  - DOMAIN-SUFFIX,musical.ly,TikTok
-  - DOMAIN-SUFFIX,muscdn.com,TikTok
-  - DOMAIN-SUFFIX,ibyteimg.com,TikTok
-  - DOMAIN-SUFFIX,ibytedtos.com,TikTok
+  - SCRIPT,quic,REJECT,no-track
+  - RULE-SET,google,Final
+  - GEOSITE,youtube,YouTube
+  - GEOSITE,netflix,Netflix
+  - GEOSITE,spotify,Spotify
+  - GEOSITE,whatsapp,WhatsApp
+  - GEOSITE,instagram,Instagram
+  - GEOSITE,vk,VK
   - IP-CIDR,17.188.143.7,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,wannaflix.net,DIRECT
-  - RULE-SET,proxyrules,Final
-  - RULE-SET,directrules,DIRECT
-  - RULE-SET,rejectrules,REJECT,no-track
+  - DOMAIN-SUFFIX,wannaflix.net,Final
+  - DOMAIN-SUFFIX,wannaflix.link,Final
+  - RULE-SET,tiktok,TikTok
   - RULE-SET,apple,DIRECT
   - RULE-SET,icloud,DIRECT
-  - RULE-SET,google,Final
   - RULE-SET,gfw,Final
-  - RULE-SET,tld-not-cn,Final
   - RULE-SET,private,DIRECT
-  - RULE-SET,telegramcidr,Telegram,no-resolve
+  - IP-ASN,62014,Telegram,no-resolve
+  - IP-ASN,59930,Telegram,no-resolve
+  - IP-ASN,44907,Telegram,no-resolve
+  - IP-ASN,211157,Telegram,no-resolve
+  - RULE-SET,telegramcidr,Telegram,no-resolve #no need to pre-resolve IP adresses
   - RULE-SET,telegramdomain,Telegram
-  - RULE-SET,cncidr,DIRECT,no-resolve
   - RULE-SET,lancidr,DIRECT,no-resolve
-  - GEOIP,CN,DIRECT,no-resolve
+  - RULE-SET,rejectrules,REJECT,no-track
+  - RULE-SET,cncidr,DIRECT,no-resolve
+  - RULE-SET,proxyrules,Final
+  - RULE-SET,directrules,DIRECT
+  - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
+  - GEOIP,CN,DIRECT
   - MATCH,Final
