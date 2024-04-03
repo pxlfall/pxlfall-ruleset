@@ -264,7 +264,6 @@ proxy-groups: #!replace
     use:
       - wannaflix
     lazy: true
-    filter: 'CHINA'
     include-all: true
     interval: 300
 
@@ -304,7 +303,6 @@ proxy-groups: #!replace
     use:
       - wannaflix
     lazy: true
-    filter: 'CHINA|DIRECT'
     include-all: true
     interval: 300
 
