@@ -1,4 +1,4 @@
-   payload:
+payload:
   - '+.tiktok.com'
   - '+.tiktokcdn-us.com'
   - '+.tiktokcdn.com'
