@@ -15,3 +15,4 @@ payload:
   - '+.ibyteimg.com'
   - '+.ibytedtos.com'
   - 'p16-tiktokcdn-com.akamaized.net'
+  - '+.tiktok.ru'
