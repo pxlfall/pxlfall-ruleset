@@ -1,9 +1,9 @@
 name: pxlfall's custom ruleset
 desc: Last updated on April 4th 2024, 04:25
 ipv6: false #!replace
-script:
-  shortcuts:
-    quic: network == 'udp' and dst_port == 443
+#script:
+#  shortcuts:
+#    quic: network == 'udp' and dst_port == 443
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
@@ -311,7 +311,7 @@ proxy-groups: #!replace
       - DIRECT
 
 rules: #!replace
-  - SCRIPT,quic,REJECT,no-track
+#  - SCRIPT,quic,REJECT,no-track
   - RULE-SET,google,Final
   - GEOSITE,youtube,YouTube
   - GEOSITE,netflix,Netflix
