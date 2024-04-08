@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 8th 2024, 09:39
+desc: Last updated on April 8th 2024, 11:49
 ipv6: false #!replace
 #script:
 #  shortcuts:
@@ -236,7 +236,7 @@ proxy-groups: #!replace
       - wannaflix
     filter: 'CHINA'
     include-all: true
-    url: 'https://www.youtube.com/'
+    url: 'http://www.youtube.com/generate_204'
     interval: 300
     lazy: true
 
