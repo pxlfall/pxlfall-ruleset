@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 6th 2024, 09:44
+desc: Last updated on April 8th 2024, 09:23
 ipv6: false #!replace
 #script:
 #  shortcuts:
@@ -93,6 +93,7 @@ dns: #!replace
     - '*.*.xboxlive.com'
     - speedtest.cros.wr.pvp.net
     - '+.scdn.co'
+    - '+.wannaflix.net'
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
@@ -320,7 +321,7 @@ rules: #!replace
   - GEOSITE,instagram,Instagram
   - GEOSITE,vk,VK
   - IP-CIDR,17.188.143.7,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,wannaflix.net,Final
+  - DOMAIN-SUFFIX,wannaflix.net,DIRECT
   - DOMAIN-SUFFIX,wannaflix.link,Final
   - RULE-SET,tiktok,TikTok
   - RULE-SET,apple,DIRECT
