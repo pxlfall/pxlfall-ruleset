@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 8th 2024, 09:23
+desc: Last updated on April 8th 2024, 09:39
 ipv6: false #!replace
 #script:
 #  shortcuts:
@@ -92,8 +92,6 @@ dns: #!replace
     - '*.ipv6.microsoft.com'
     - '*.*.xboxlive.com'
     - speedtest.cros.wr.pvp.net
-    - '+.scdn.co'
-    - '+.wannaflix.net'
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
@@ -313,7 +311,7 @@ proxy-groups: #!replace
 
 rules: #!replace
 #  - SCRIPT,quic,REJECT,no-track
-  - RULE-SET,google,Final
+  - RULE-SET,google,Main Server
   - GEOSITE,youtube,YouTube
   - GEOSITE,netflix,Netflix
   - GEOSITE,spotify,Spotify
@@ -321,6 +319,7 @@ rules: #!replace
   - GEOSITE,instagram,Instagram
   - GEOSITE,vk,VK
   - IP-CIDR,17.188.143.7,DIRECT,no-resolve
+  - DOMAIN,ftp.apps.wannaflix.net,DIRECT
   - DOMAIN-SUFFIX,wannaflix.net,DIRECT
   - DOMAIN-SUFFIX,wannaflix.link,Final
   - RULE-SET,tiktok,TikTok
@@ -332,7 +331,7 @@ rules: #!replace
   - IP-ASN,59930,Telegram,no-resolve
   - IP-ASN,44907,Telegram,no-resolve
   - IP-ASN,211157,Telegram,no-resolve
-  - RULE-SET,telegramcidr,Telegram,no-resolve #no need to pre-resolve IP adresses
+  - RULE-SET,telegramcidr,Telegram,no-resolve #no need to resolve IP adresses
   - RULE-SET,telegramdomain,Telegram
   - RULE-SET,lancidr,DIRECT,no-resolve
   - RULE-SET,rejectrules,REJECT,no-track
