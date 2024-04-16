@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on April 8th 2024, 11:49
+desc: Last updated on April 16th 2024, 23:30
 ipv6: false #!replace
 #script:
 #  shortcuts:
@@ -198,21 +198,21 @@ proxy-groups: #!replace
     type: select
     use:
       - wannaflix
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 600
+    # url: 'http://www.gstatic.com/generate_204'
+    # interval: 600
 
   - name: Netflix
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png'
-    url: 'http://www.netflix.com'
+   # url: 'http://www.netflix.com'
     proxies:
       - Main Server
     use:
       - wannaflix
     lazy: true
-    filter: 'CHINA'
-    include-all: true
-    interval: 300
+    # filter: 'CHINA'
+    # include-all: true
+    # interval: 300
 
   - name: TikTok
     type: select
@@ -223,12 +223,12 @@ proxy-groups: #!replace
       - wannaflix
     filter: 'SS'
     include-all: true
-    url: 'https://www.tiktok.com/'
-    interval: 300
-    lazy: true
+    # url: 'https://www.tiktok.com/'
+   #  interval: 300
+    # lazy: true
 
   - name: YouTube
-    type: url-test
+    type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png'
     proxies:
       - Main Server
@@ -236,9 +236,9 @@ proxy-groups: #!replace
       - wannaflix
     filter: 'CHINA'
     include-all: true
-    url: 'http://www.youtube.com/generate_204'
-    interval: 300
-    lazy: true
+    # url: 'http://www.youtube.com/generate_204'
+    # interval: 300
+    # lazy: true
 
   - name: Telegram
     type: select
@@ -249,59 +249,59 @@ proxy-groups: #!replace
     use:
       - wannaflix
     lazy: true
-    filter: '^(?=.*SS)(?=.*CHINA)(?=.*(?:US|Japan|Germany|France|Canada|UK)).*$'
-    include-all: true
-    interval: 300
+    # filter: '^(?=.*SS)(?=.*CHINA)(?=.*(?:US|Japan|Germany|France|Canada|UK)).*$'
+    # include-all: true
+    # interval: 300
 
   - name: Spotify
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Spotify.png'
-    url: 'http://www.spotify.com/'
+    # url: 'http://www.spotify.com/'
     proxies:
       - Main Server
       - DIRECT
     use:
       - wannaflix
-    lazy: true
-    interval: 300
+    # lazy: true
+    # interval: 300
 
   - name: WhatsApp
-    type: url-test
+    type: select
     icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/whatsapp.png'
-    url: 'http://www.whatsapp.com'
+    # url: 'http://www.whatsapp.com'
     proxies:
       - Main Server
     use:
       - wannaflix
     lazy: true
-    filter: 'SS'
+    # filter: 'SS'
     include-all: true
-    interval: 300
+    # interval: 300
 
   - name: Instagram
-    type: url-test
+    type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png'
-    url: 'http://www.instagram.com'
+    # url: 'http://www.instagram.com'
     proxies:
       - Main Server
     use:
       - wannaflix
-    lazy: true
+    # lazy: true
     filter: '^(?=.*CHINA)(?=.*(?:US|Japan|Germany|France|Canada|UK)).*$'
     include-all: true
-    interval: 300
+    # interval: 300
 
   - name: VK
     type: select
     icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/vk.png'
-    url: 'http://www.vk.com'
+    # url: 'http://www.vk.com'
     proxies:
       - DIRECT
       - Main Server
     use:
       - wannaflix
-    lazy: true
-    interval: 300
+    # lazy: true
+    # interval: 300
 
   - name: Final
     type: select
