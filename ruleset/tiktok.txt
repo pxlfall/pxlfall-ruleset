@@ -12,6 +12,8 @@ payload:
   - '+.tik-tokapi.com'
   - '+.musical.ly'
   - '+.muscdn.com'
+  - '+.snssdk.com'
+  - '+.sgpstatp.com'
   - '+.ibyteimg.com'
   - '+.ibytedtos.com'
   - 'p16-tiktokcdn-com.akamaized.net'
