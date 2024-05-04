@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on May 5th, 2024, 04:29
+desc: Last updated on May 5th, 2024, 04:52
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -218,10 +218,9 @@ proxy-groups: #!replace
       - Main Server
     use:
       - wannaflix
-    filter: 'SS'
     include-all: true
     # url: 'https://www.tiktok.com/'
-   #  interval: 300
+    # interval: 300
     # lazy: true
 
   - name: YouTube
