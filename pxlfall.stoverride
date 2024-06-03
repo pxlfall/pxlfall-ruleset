@@ -316,7 +316,7 @@ proxy-groups: #!replace
 
 rules: #!replace
 #  - SCRIPT,quic,REJECT,no-track
-  - RULE-SET,openai,OpenAI
+  - GEOSITE,openai,OpenAI
   - RULE-SET,google,Main Server
   - GEOSITE,youtube,YouTube
   - GEOSITE,netflix,Netflix
