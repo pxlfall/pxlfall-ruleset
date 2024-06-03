@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on May 5th, 2024, 04:52
+desc: Last updated on Jun 3rd, 2024, 09:45
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -218,7 +218,6 @@ proxy-groups: #!replace
       - Main Server
     use:
       - wannaflix
-    include-all: true
     # url: 'https://www.tiktok.com/'
     # interval: 300
     # lazy: true
@@ -228,10 +227,11 @@ proxy-groups: #!replace
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png'
     proxies:
       - Main Server
+      - DIRECT
     use:
       - wannaflix
     filter: 'CHINA'
-    include-all: true
+    # include-all: true
     # url: 'http://www.youtube.com/generate_204'
     # interval: 300
     # lazy: true
@@ -261,6 +261,18 @@ proxy-groups: #!replace
     # lazy: true
     # interval: 300
 
+  - name: OpenAI
+    type: select
+    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/openai.png'
+    # url: 'http://www.spotify.com/'
+    proxies:
+      - Main Server
+      - DIRECT
+    use:
+      - wannaflix
+    # lazy: true
+    # interval: 300
+
   - name: WhatsApp
     type: select
     icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/whatsapp.png'
@@ -271,7 +283,6 @@ proxy-groups: #!replace
       - wannaflix
     lazy: true
     # filter: 'SS'
-    include-all: true
     # interval: 300
 
   - name: Instagram
@@ -283,8 +294,6 @@ proxy-groups: #!replace
     use:
       - wannaflix
     # lazy: true
-    filter: '^(?=.*CHINA)(?=.*(?:US|Japan|Germany|France|Canada|UK)).*$'
-    include-all: true
     # interval: 300
 
   - name: VK
@@ -307,6 +316,7 @@ proxy-groups: #!replace
 
 rules: #!replace
 #  - SCRIPT,quic,REJECT,no-track
+  - RULE-SET,openai,OpenAI
   - RULE-SET,google,Main Server
   - GEOSITE,youtube,YouTube
   - GEOSITE,netflix,Netflix
