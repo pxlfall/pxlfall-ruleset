@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 6th, 2024, 01:34
+desc: Last updated on Aug 6th, 2024, 01:44
 ipv6: true #!replace
 hosts: #!replace
   '*.clash.dev': 127.0.0.1
@@ -14,7 +14,6 @@ dns: #!replace
   default-nameserver:
     - 223.5.5.5
     - 114.114.114.114
-    - system
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
@@ -89,17 +88,16 @@ dns: #!replace
     - '*.ipv6.microsoft.com'
     - '*.*.xboxlive.com'
     - speedtest.cros.wr.pvp.net
-    - '*.icloud.com'
-    - '*.icloud.com.cn'
     - '+.tripcdn.com'
     - '+.trip.com'
     - '+aliyuncs.com'
   nameserver:
     - 114.114.114.114
+    - 223.5.5.5
     - system
   skip-cert-verify: true
   fallback:
-    - https://1.1.1.1/dns-query
+    - https://dns10.quad9.net/dns-query
     - https://8.8.8.8/dns-query
   fallback-filter:
     geoip: true
@@ -111,18 +109,14 @@ dns: #!replace
       - '+.google.com'
       - '+.facebook.com'
       - '+.twitter.com'
-      - '+.apple.com'
       - '+.youtube.com'
       - '+.google.cn'
       - '+.googleapis.cn'
       - '+.googleapis.com'
       - '+.gvt1.com'
-      - '+.icloud.com'
   nameserver-policy:
     '+.trip.com': 'https://dns10.quad9.net/dns-query'
     '+.tripcdn.com': 'https://dns10.quad9.net/dns-query'
-    '+.apple.com.+': '114.114.114.114'
-    '+.icloud.com.+': '114.114.114.114'
     '+.scdn.co': 'https://1.1.1.1/dns-query'
     '+.d.meituan.net': '114.114.114.114'
     '+.d.meituan.com': '114.114.114.114'
