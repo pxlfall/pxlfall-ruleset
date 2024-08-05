@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 6th, 2024, 01:15
+desc: Last updated on Aug 6th, 2024, 01:25
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -349,14 +349,14 @@ rules: #!replace
   - RULE-SET,telegramcidr,Telegram,no-resolve #no need to resolve IP adresses
   - RULE-SET,telegramdomain,Telegram
   - RULE-SET,lancidr,DIRECT,no-resolve
-  - RULE-SET,rejectrules,REJECT,no-track
   - RULE-SET,cncidr,DIRECT,no-resolve
-  - RULE-SET,proxyrules,Final
-  - RULE-SET,directrules,DIRECT
-  - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
-  - DOMAIN,iosapps.itunes.apple.com,DIRECT
   - RULE-SET,apple,DIRECT
   - GEOSITE,apple,DIRECT
   - GEOSITE,icloud,DIRECT
+  - DOMAIN,iosapps.itunes.apple.com,DIRECT
+  - RULE-SET,proxyrules,Final
+  - RULE-SET,directrules,DIRECT
+  - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
+  - RULE-SET,rejectrules,REJECT,no-track
   - GEOIP,CN,DIRECT
   - MATCH,Final
