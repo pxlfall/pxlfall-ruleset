@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Jun 3rd, 2024, 09:45
+desc: Last updated on Aug 6th, 2024, 01:15
 ipv6: false #!replace
 hosts: #fix meituan
   '*.clash.dev': 127.0.0.1
@@ -89,9 +89,14 @@ dns: #!replace
     - '*.ipv6.microsoft.com'
     - '*.*.xboxlive.com'
     - speedtest.cros.wr.pvp.net
+    - '*.icloud.com'
+    - '*.icloud.com.cn'
+    - '+.tripcdn.com'
+    - '+.trip.com'
+    - '+.apple.com'
+    - '+aliyuncs.com'
   nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+    - 114.114.114.114
     - system
   skip-cert-verify: true
   fallback:
@@ -113,7 +118,10 @@ dns: #!replace
       - '+.googleapis.cn'
       - '+.googleapis.com'
       - '+.gvt1.com'
+      - '+.icloud.com'
   nameserver-policy:
+    '+.icloud.com.+': 'https://dns10.quad9.net/dns-query'
+    '+.apple.com.+': 'https://dns10.quad9.net/dns-query'
     '+.scdn.co': 'https://1.1.1.1/dns-query'
     '+.d.meituan.net': '114.114.114.114'
     '+.d.meituan.com': '114.114.114.114'
@@ -135,6 +143,7 @@ dns: #!replace
     '+.userapi.com': 'https://1.1.1.1/dns-query'
     '+.vk-portal.net': 'https://1.1.1.1/dns-query'
     '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
+    '+.aliyuncs.com': 'https://dns10.quad9.net/dns-query'
   follow-rule: false # disabled due to poor performance and log clutter with errors
 rule-providers:
   directrules:
@@ -329,9 +338,9 @@ rules: #!replace
   - DOMAIN-SUFFIX,wannaflix.net,DIRECT
   - DOMAIN-SUFFIX,wannaflix.link,Final
   - RULE-SET,tiktok,TikTok
-  - RULE-SET,apple,DIRECT
-  - RULE-SET,icloud,DIRECT
   - RULE-SET,gfw,Final
+  - DOMAIN-KEYWORD,trip.com,DIRECT
+  - DOMAIN-KEYWORD,tripcdn.com,DIRECT
   - RULE-SET,private,DIRECT
   - IP-ASN,62014,Telegram,no-resolve
   - IP-ASN,59930,Telegram,no-resolve
@@ -345,5 +354,9 @@ rules: #!replace
   - RULE-SET,proxyrules,Final
   - RULE-SET,directrules,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
+  - DOMAIN,iosapps.itunes.apple.com,DIRECT
+  - RULE-SET,apple,DIRECT
+  - GEOSITE,apple,DIRECT
+  - GEOSITE,icloud,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,Final
