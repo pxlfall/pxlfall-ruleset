@@ -1,7 +1,7 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 6th, 2024, 01:28
-ipv6: false #!replace
-hosts: #fix meituan
+desc: Last updated on Aug 6th, 2024, 01:34
+ipv6: true #!replace
+hosts: #!replace
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
   'metrics-picture.d.meituan.net': 103.37.152.48
@@ -9,7 +9,7 @@ hosts: #fix meituan
   'route-stats.d.meituan.net': 101.236.69.94
 dns: #!replace
   enable: true
-  ipv6: false
+  ipv6: true
   listen: 0.0.0.0:53
   default-nameserver:
     - 223.5.5.5
@@ -93,7 +93,6 @@ dns: #!replace
     - '*.icloud.com.cn'
     - '+.tripcdn.com'
     - '+.trip.com'
-    - '+.apple.com'
     - '+aliyuncs.com'
   nameserver:
     - 114.114.114.114
@@ -122,8 +121,8 @@ dns: #!replace
   nameserver-policy:
     '+.trip.com': 'https://dns10.quad9.net/dns-query'
     '+.tripcdn.com': 'https://dns10.quad9.net/dns-query'
-    '+.icloud.com.+': 'https://dns10.quad9.net/dns-query'
-    '+.apple.com.+': 'https://dns10.quad9.net/dns-query'
+    '+.apple.com.+': '114.114.114.114'
+    '+.icloud.com.+': '114.114.114.114'
     '+.scdn.co': 'https://1.1.1.1/dns-query'
     '+.d.meituan.net': '114.114.114.114'
     '+.d.meituan.com': '114.114.114.114'
@@ -147,7 +146,7 @@ dns: #!replace
     '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
     '+.aliyuncs.com': 'https://dns10.quad9.net/dns-query'
   follow-rule: false # disabled due to poor performance and log clutter with errors
-rule-providers:
+rule-providers: #!replace
   directrules:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/direct.txt"
@@ -200,7 +199,6 @@ rule-providers:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/tiktok.txt"
     interval: 345600
-
 proxy-groups: #!replace
   - name: Main Server
     type: select
@@ -324,9 +322,7 @@ proxy-groups: #!replace
     proxies:
       - Main Server
       - DIRECT
-
 rules: #!replace
-#  - SCRIPT,quic,REJECT,no-track
   - GEOSITE,openai,OpenAI
   - RULE-SET,google,Main Server
   - GEOSITE,youtube,YouTube
