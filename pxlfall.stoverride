@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 8th, 2024, 02:32
+desc: Last updated on Aug 8th, 2024, 02:50
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
@@ -143,7 +143,7 @@ dns: #!replace
     '+.vk-portal.net': 'https://1.1.1.1/dns-query'
     '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
     '+.aliyuncs.com': 'https://dns10.quad9.net/dns-query'
-  follow-rule: true
+  follow-rule: false
 rule-providers: #!replace
   directrules:
     behavior: domain
@@ -315,16 +315,16 @@ proxy-groups: #!replace
     # lazy: true
     # interval: 300
 
-  - name: DNS
-    type: url-test
-    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/cloudflare.png'
-    url: 'https://dns10.quad9.net/dns-query'
-    proxies:
-      - Main Server
-    use:
-      - wannaflix
-    lazy: true
-    interval: 300
+#  - name: DNS
+#    type: url-test
+#    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/cloudflare.png'
+#    url: 'https://dns10.quad9.net/dns-query'
+#    proxies:
+#      - Main Server
+#    use:
+#      - wannaflix
+#    lazy: true
+#    interval: 300
 
   - name: Final
     type: select
@@ -363,12 +363,12 @@ rules: #!replace
   - GEOSITE,icloud,DIRECT
   - DOMAIN,iosapps.itunes.apple.com,DIRECT
   - SCRIPT,whatsappcall,DIRECT,no-resolve
-  - IP-CIDR,9.9.9.10,DNS,no-resolve
-  - IP-CIDR,149.112.112.10,DNS,no-resolve
-  - IP-CIDR,8.8.8.8,DNS,no-resolve
-  - IP-CIDR,8.8.4.4,DNS,no-resolve
-  - IP-CIDR,1.1.1.1,DNS,no-resolve
-  - DOMAIN-SUFFIX,dns10.quad9.net,DNS
+#  - IP-CIDR,9.9.9.10,DNS,no-resolve
+#  - IP-CIDR,149.112.112.10,DNS,no-resolve
+#  - IP-CIDR,8.8.8.8,DNS,no-resolve
+#  - IP-CIDR,8.8.4.4,DNS,no-resolve
+#  - IP-CIDR,1.1.1.1,DNS,no-resolve
+#  - DOMAIN-SUFFIX,dns10.quad9.net,DNS
   - RULE-SET,proxyrules,Main Server
   - RULE-SET,directrules,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
