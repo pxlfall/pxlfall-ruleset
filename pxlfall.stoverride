@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 8th, 2024, 01:28
+desc: Last updated on Aug 8th, 2024, 01:30
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
