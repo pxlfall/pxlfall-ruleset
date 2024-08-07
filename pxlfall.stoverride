@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 8th, 2024, 02:23
+desc: Last updated on Aug 8th, 2024, 02:28
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
@@ -370,7 +370,6 @@ rules: #!replace
   - IP-CIDR,8.8.4.4,DNS,no-resolve
   - IP-CIDR,1.1.1.1,DNS,no-resolve
   - DOMAIN-SUFFIX,dns10.quad9.net,DNS
-  - DOMAIN-SUFFIX,1.1.1.1,DNS
   - RULE-SET,proxyrules,Main Server
   - RULE-SET,directrules,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
