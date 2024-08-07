@@ -1,5 +1,6 @@
 name: pxlfall's custom ruleset
 desc: Last updated on Aug 7th, 2024, 17:06
+log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
   shortcuts:
@@ -142,7 +143,7 @@ dns: #!replace
     '+.vk-portal.net': 'https://1.1.1.1/dns-query'
     '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
     '+.aliyuncs.com': 'https://dns10.quad9.net/dns-query'
-  follow-rule: false # disabled due to poor performance and log clutter with errors
+  follow-rule: true
 rule-providers: #!replace
   directrules:
     behavior: domain
@@ -314,11 +315,17 @@ proxy-groups: #!replace
     # lazy: true
     # interval: 300
 
-  - name: Final
-    type: select
+  - name: DNS
+    type: url-test
+    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/cloudflare.png'
+    url: 'https://dns10.quad9.net/dns-query'
     proxies:
       - Main Server
-      - DIRECT
+    use:
+      - wannaflix
+    lazy: true
+    interval: 300
+
 rules: #!replace
   - GEOSITE,openai,OpenAI
   - RULE-SET,google,Main Server
@@ -331,9 +338,9 @@ rules: #!replace
   - IP-CIDR,17.188.143.7,DIRECT,no-resolve
   - DOMAIN,ftp.apps.wannaflix.net,DIRECT
   - DOMAIN-SUFFIX,wannaflix.net,DIRECT
-  - DOMAIN-SUFFIX,wannaflix.link,Final
+  - DOMAIN-SUFFIX,wannaflix.link,Main Server
   - RULE-SET,tiktok,TikTok
-  - RULE-SET,gfw,Final
+  - RULE-SET,gfw,Main Server
   - DOMAIN-KEYWORD,trip.com,DIRECT
   - DOMAIN-KEYWORD,tripcdn.com,DIRECT
   - RULE-SET,private,DIRECT
@@ -350,9 +357,12 @@ rules: #!replace
   - GEOSITE,icloud,DIRECT
   - DOMAIN,iosapps.itunes.apple.com,DIRECT
   - SCRIPT,whatsappcall,DIRECT,no-resolve
-  - RULE-SET,proxyrules,Final
+  - IP-CIDR,8.8.8.8,DNS,no-resolve
+  - DOMAIN-SUFFIX,8.8.8.8,DNS
+  - DOMAIN-SUFFIX,dns10.quad9.net,DNS
+  - RULE-SET,proxyrules,Main Server
   - RULE-SET,directrules,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
   - RULE-SET,rejectrules,REJECT,no-track
   - GEOIP,CN,DIRECT
-  - MATCH,Final
+  - MATCH,Main Server
