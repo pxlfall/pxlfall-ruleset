@@ -1,6 +1,9 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 6th, 2024, 01:44
+desc: Last updated on Aug 7th, 2024, 17:05
 ipv6: true #!replace
+script: #!replace
+  shortcuts:
+    whatsappcall: network == 'udp' and (dst_port == 3478 or dst_port == 4244 or dst_port == 5222-5228 or dst_port == 5242 or dst_port == 45395 or dst_port == 50318 or dst_port == 59234 or dst_port == 34784 or dst_port == 5349)
 hosts: #!replace
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
@@ -123,7 +126,7 @@ dns: #!replace
     '+.neixin.cn': '114.114.114.114'
     '+.tsumino.com': 'https://1.1.1.1/dns-query'
     '+.nhentai.net': 'https://dns10.quad9.net/dns-query'
-    'www.nhentai.net': 'https://dns10.quad9.net/dns-query'
+    'www.nhentai.net': 'https://  dns10.quad9.net/dns-query'
     '+.nhentai.com': 'https://dns10.quad9.net/dns-query'
     '+.nhentaimg.com': 'https://dns10.quad9.net/dns-query'
     '+.nhentai.to': 'https://dns10.quad9.net/dns-query'
@@ -346,6 +349,7 @@ rules: #!replace
   - GEOSITE,apple,DIRECT
   - GEOSITE,icloud,DIRECT
   - DOMAIN,iosapps.itunes.apple.com,DIRECT
+  - SCRIPT,whatsappcall,DIRECT
   - RULE-SET,proxyrules,Final
   - RULE-SET,directrules,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
