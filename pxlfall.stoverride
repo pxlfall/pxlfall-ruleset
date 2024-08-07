@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 7th, 2024, 17:06
+desc: Last updated on Aug 8th, 2024, 01:28
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
@@ -357,7 +357,8 @@ rules: #!replace
   - GEOSITE,icloud,DIRECT
   - DOMAIN,iosapps.itunes.apple.com,DIRECT
   - SCRIPT,whatsappcall,DIRECT,no-resolve
-  - IP-CIDR,8.8.8.8,DNS,no-resolve
+  - IP-CIDR,9.9.9.10/32,DNS,no-resolve
+  - IP-CIDR,8.8.8.8/32,DNS,no-resolve
   - DOMAIN-SUFFIX,8.8.8.8,DNS
   - DOMAIN-SUFFIX,dns10.quad9.net,DNS
   - RULE-SET,proxyrules,Main Server
