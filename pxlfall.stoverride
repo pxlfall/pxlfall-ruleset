@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 8th, 2024, 02:31
+desc: Last updated on Aug 8th, 2024, 02:32
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
@@ -119,7 +119,6 @@ dns: #!replace
       - '+.googleapis.com'
       - '+.gvt1.com'
   nameserver-policy:
-    '+.hnytkm.com': 1.0.0.1
     '+.trip.com': 'https://dns10.quad9.net/dns-query'
     '+.tripcdn.com': 'https://dns10.quad9.net/dns-query'
     '+.scdn.co': 'https://1.1.1.1/dns-query'
