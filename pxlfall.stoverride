@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 7th, 2024, 17:05
+desc: Last updated on Aug 7th, 2024, 17:06
 ipv6: true #!replace
 script: #!replace
   shortcuts:
@@ -126,7 +126,7 @@ dns: #!replace
     '+.neixin.cn': '114.114.114.114'
     '+.tsumino.com': 'https://1.1.1.1/dns-query'
     '+.nhentai.net': 'https://dns10.quad9.net/dns-query'
-    'www.nhentai.net': 'https://  dns10.quad9.net/dns-query'
+    'www.nhentai.net': 'https://dns10.quad9.net/dns-query'
     '+.nhentai.com': 'https://dns10.quad9.net/dns-query'
     '+.nhentaimg.com': 'https://dns10.quad9.net/dns-query'
     '+.nhentai.to': 'https://dns10.quad9.net/dns-query'
