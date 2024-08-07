@@ -349,7 +349,7 @@ rules: #!replace
   - GEOSITE,apple,DIRECT
   - GEOSITE,icloud,DIRECT
   - DOMAIN,iosapps.itunes.apple.com,DIRECT
-  - SCRIPT,whatsappcall,DIRECT
+  - SCRIPT,whatsappcall,DIRECT,no-resolve
   - RULE-SET,proxyrules,Final
   - RULE-SET,directrules,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
