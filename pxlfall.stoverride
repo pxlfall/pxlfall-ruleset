@@ -1,5 +1,5 @@
 name: pxlfall's custom ruleset
-desc: Last updated on Aug 8th, 2024, 02:50
+desc: Last updated on Aug 8th, 2024, 14:24
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
@@ -303,6 +303,19 @@ proxy-groups: #!replace
     # lazy: true
     # interval: 300
 
+  - name: Discord
+    type: select
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Discord.png'
+   # url: 'http://www.netflix.com'
+    proxies:
+      - Main Server
+    use:
+      - wannaflix
+    # lazy: true
+    # filter: 'CHINA'
+    # include-all: true
+    # interval: 300
+
   - name: VK
     type: select
     icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/vk.png'
@@ -362,6 +375,7 @@ rules: #!replace
   - GEOSITE,apple,DIRECT
   - GEOSITE,icloud,DIRECT
   - DOMAIN,iosapps.itunes.apple.com,DIRECT
+  - GEOSITE,discord,Discord
   - SCRIPT,whatsappcall,DIRECT,no-resolve
 #  - IP-CIDR,9.9.9.10,DNS,no-resolve
 #  - IP-CIDR,149.112.112.10,DNS,no-resolve
