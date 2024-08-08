@@ -1,9 +1,8 @@
 name: pxlfall's TESTING
-desc: If in rules
+desc: If in rules 2
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
-  engine: expr
   shortcuts:
     # whatsappcall: network == 'udp' and (dst_port == 3478 or dst_port == 4244 or dst_port == 5222-5228 or dst_port == 5242 or dst_port == 45395 or dst_port == 50318 or dst_port == 59234 or dst_port == 34784 or dst_port == 5349)
     # discordcall: network == 'udp' and dst_port > 45000 and match_provider('discordvoicecidr')
@@ -205,6 +204,7 @@ rule-providers: #!replace
     behavior: ipcidr
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/discordvoicecidr2.yaml"
     interval: 345600
+
 proxy-groups: #!replace
   - name: Main Server
     type: select
@@ -355,9 +355,10 @@ proxy-groups: #!replace
 
 rules: #!replace
   - if: network == 'udp'
-    name: UDP
+    name: LMAOO
     rules:
       - RULE-SET,discordvoicecidr,DIRECT,no-resolve
+      - MATCH,REJECT
   # - SCRIPT,discordcall,DIRECT,no-resolve
   - GEOSITE,openai,OpenAI
   - RULE-SET,google,Main Server
@@ -390,12 +391,12 @@ rules: #!replace
   - DOMAIN,iosapps.itunes.apple.com,DIRECT
   - GEOSITE,discord,Discord
   - SCRIPT,whatsappcall,DIRECT,no-resolve
-#  - IP-CIDR,9.9.9.10,DNS,no-resolve
-#  - IP-CIDR,149.112.112.10,DNS,no-resolve
-#  - IP-CIDR,8.8.8.8,DNS,no-resolve
-#  - IP-CIDR,8.8.4.4,DNS,no-resolve
-#  - IP-CIDR,1.1.1.1,DNS,no-resolve
-#  - DOMAIN-SUFFIX,dns10.quad9.net,DNS
+ #  - IP-CIDR,9.9.9.10,DNS,no-resolve
+ #  - IP-CIDR,149.112.112.10,DNS,no-resolve
+ #  - IP-CIDR,8.8.8.8,DNS,no-resolve
+ #  - IP-CIDR,8.8.4.4,DNS,no-resolve
+ #  - IP-CIDR,1.1.1.1,DNS,no-resolve
+ #  - DOMAIN-SUFFIX,dns10.quad9.net,DNS
   - RULE-SET,proxyrules,Main Server
   - RULE-SET,directrules,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
