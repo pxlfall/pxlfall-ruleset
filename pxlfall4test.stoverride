@@ -1,12 +1,10 @@
 name: pxlfall's TESTING
-desc: If in rules 2
+desc: Ah ffs, full udp disable
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
   shortcuts:
-    # whatsappcall: network == 'udp' and (dst_port == 3478 or dst_port == 4244 or dst_port == 5222-5228 or dst_port == 5242 or dst_port == 45395 or dst_port == 50318 or dst_port == 59234 or dst_port == 34784 or dst_port == 5349)
-    # discordcall: network == 'udp' and dst_port > 45000 and match_provider('discordvoicecidr')
-    # udp-relay-disable: network == 'udp'
+    udp-relay-disable: network == 'udp'
 hosts: #!replace
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
@@ -354,13 +352,10 @@ proxy-groups: #!replace
       - DIRECT
 
 rules: #!replace
-  - if: network == 'udp'
-    name: LMAOO
-    rules:
-      - RULE-SET,discordvoicecidr,DIRECT,no-resolve
-      - MATCH,REJECT
-  # - SCRIPT,discordcall,DIRECT,no-resolve
+  - SCRIPT,udp-relay-disable,DIRECT,no-resolve
   - GEOSITE,openai,OpenAI
+  - IP-CIDR,66.22.217.111,DIRECT,no-resolve
+  - IP-CIDR,66.22.217.111/32,DIRECT,no-resolve
   - RULE-SET,google,Main Server
   - GEOSITE,youtube,YouTube
   - GEOSITE,netflix,Netflix
@@ -390,7 +385,6 @@ rules: #!replace
   - GEOSITE,icloud,DIRECT
   - DOMAIN,iosapps.itunes.apple.com,DIRECT
   - GEOSITE,discord,Discord
-  - SCRIPT,whatsappcall,DIRECT,no-resolve
  #  - IP-CIDR,9.9.9.10,DNS,no-resolve
  #  - IP-CIDR,149.112.112.10,DNS,no-resolve
  #  - IP-CIDR,8.8.8.8,DNS,no-resolve
