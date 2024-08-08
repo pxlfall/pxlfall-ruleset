@@ -1,11 +1,11 @@
 name: pxlfall's TESTING
-desc: CUSTOM SCRIPT FOR DISCORD CALL 4
+desc: CUSTOM SCRIPT FOR DISCORD CALL 5 FINAL
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
   shortcuts:
     whatsappcall: network == 'udp' and (dst_port == 3478 or dst_port == 4244 or dst_port == 5222-5228 or dst_port == 5242 or dst_port == 45395 or dst_port == 50318 or dst_port == 59234 or dst_port == 34784 or dst_port == 5349)
-    discordcall: network == 'udp' and dst_port >= 50000 and dst_port <=65535 and match_provider('discordvoicecidr')
+    discordcall: network == 'udp' and dst_port > 45000 and match_provider('discordvoicecidr')
 hosts: #!replace
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
@@ -200,10 +200,6 @@ rule-providers: #!replace
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/tiktok.txt"
     interval: 345600
   discordvoicecidr:
-    behavior: ipcidr
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/discordvoicecidr.txt"
-    interval: 345600
-  discordvoicecidryaml:
     behavior: ipcidr
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/discordvoicecidr2.yaml"
     interval: 345600
