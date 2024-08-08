@@ -1,5 +1,5 @@
 name: pxlfall's TESTING
-desc: CUSTOM SCRIPT FOR DISCORD CALL 3
+desc: CUSTOM SCRIPT FOR DISCORD CALL 4
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
@@ -202,6 +202,10 @@ rule-providers: #!replace
   discordvoicecidr:
     behavior: ipcidr
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/discordvoicecidr.txt"
+    interval: 345600
+  discordvoicecidryaml:
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/discordvoicecidr2.yaml"
     interval: 345600
 proxy-groups: #!replace
   - name: Main Server
