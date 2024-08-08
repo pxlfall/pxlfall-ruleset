@@ -1,5 +1,5 @@
 name: pxlfall's TESTING
-desc: Last updated on Aug 8th, 2024, 14:24
+desc: REJECT no-track everything now
 log-level: debug #!replace
 ipv6: true #!replace
 script: #!replace
@@ -346,35 +346,35 @@ proxy-groups: #!replace
       - DIRECT
 
 rules: #!replace
-  - GEOSITE,openai,OpenAI,no-track
+  - GEOSITE,openai,REJECT,no-track
   - RULE-SET,google,Main Server,no-track
-  - GEOSITE,youtube,YouTube,no-track
-  - GEOSITE,netflix,Netflix,no-track
-  - GEOSITE,spotify,Spotify,no-track
-  - GEOSITE,whatsapp,WhatsApp,no-track
-  - GEOSITE,instagram,Instagram,no-track
-  - GEOSITE,vk,VK,no-track
-  - IP-CIDR,17.188.143.7,DIRECT,no-resolve,no-track
-  - DOMAIN,ftp.apps.wannaflix.net,DIRECT,no-track
-  - DOMAIN-SUFFIX,wannaflix.net,DIRECT,no-track
+  - GEOSITE,youtube,REJECT,no-track
+  - GEOSITE,netflix,REJECT,no-track
+  - GEOSITE,spotify,REJECT,no-track
+  - GEOSITE,whatsapp,REJECT,no-track
+  - GEOSITE,instagram,REJECT,no-track
+  - GEOSITE,vk,REJECT,no-track
+  - IP-CIDR,17.188.143.7,REJECT,no-track
+  - DOMAIN,ftp.apps.wannaflix.net,REJECT,no-track
+  - DOMAIN-SUFFIX,wannaflix.net,REJECT,no-track
   - DOMAIN-SUFFIX,wannaflix.link,Main Server,no-track
-  - RULE-SET,tiktok,TikTok,no-track
+  - RULE-SET,tiktok,REJECT,no-track
   - RULE-SET,gfw,Main Server,no-track
-  - DOMAIN-KEYWORD,trip.com,DIRECT,no-track
-  - DOMAIN-KEYWORD,tripcdn.com,DIRECT,no-track
-  - RULE-SET,private,DIRECT,no-track
-  - IP-ASN,62014,Telegram,no-resolve,no-track
-  - IP-ASN,59930,Telegram,no-resolve,no-track
-  - IP-ASN,44907,Telegram,no-resolve,no-track
-  - IP-ASN,211157,Telegram,no-resolve,no-track
-  - RULE-SET,telegramcidr,Telegram,no-resolve,no-track #no need to resolve IP adresses
-  - RULE-SET,telegramdomain,Telegram,no-track
-  - RULE-SET,lancidr,DIRECT,no-resolve,no-track
-  - RULE-SET,cncidr,DIRECT,no-resolve,no-track
-  - RULE-SET,apple,DIRECT,no-track
-  - GEOSITE,apple,DIRECT,no-track
-  - GEOSITE,icloud,DIRECT,no-track
-  - DOMAIN,iosapps.itunes.apple.com,DIRECT,no-track
+  - DOMAIN-KEYWORD,trip.com,REJECT,no-track
+  - DOMAIN-KEYWORD,tripcdn.com,REJECT,no-track
+  - RULE-SET,private,REJECT,no-track
+  - IP-ASN,62014,REJECT,no-track
+  - IP-ASN,59930,REJECT,no-track
+  - IP-ASN,44907,REJECT,no-track
+  - IP-ASN,211157,REJECT,no-track
+  - RULE-SET,telegramcidr,REJECT,no-track
+  - RULE-SET,telegramdomain,REJECT,no-track
+  - RULE-SET,lancidr,DIRECT,no-resolve
+  - RULE-SET,cncidr,REJECT,no-track
+  - RULE-SET,apple,REJECT,no-track
+  - GEOSITE,apple,REJECT,no-track
+  - GEOSITE,icloud,REJECT,no-track
+  - DOMAIN,iosapps.itunes.apple.com,REJECT,no-track
   - GEOSITE,discord,Discord
   - SCRIPT,whatsappcall,DIRECT,no-resolve
 #  - IP-CIDR,9.9.9.10,DNS,no-resolve
@@ -384,8 +384,8 @@ rules: #!replace
 #  - IP-CIDR,1.1.1.1,DNS,no-resolve
 #  - DOMAIN-SUFFIX,dns10.quad9.net,DNS
   - RULE-SET,proxyrules,Main Server,no-track
-  - RULE-SET,directrules,DIRECT,no-track
-  - DOMAIN-KEYWORD,tiktokcdn,TikTok,no-track #sorted out of order for better matching speed of everything else
+  - RULE-SET,directrules,REJECT,no-track
+  - DOMAIN-KEYWORD,tiktokcdn,REJECT,no-track
   - RULE-SET,rejectrules,REJECT,no-track
-  - GEOIP,CN,DIRECT,no-track
-  - MATCH,Final,no-track
+  - GEOIP,CN,REJECT,no-track
+  - MATCH,REJECT,no-track
