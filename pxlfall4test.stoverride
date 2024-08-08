@@ -1,10 +1,11 @@
 name: pxlfall's TESTING
-desc: REJECT no-track everything now
-log-level: debug #!replace
+desc: CUSTOM SCRIPT FOR DISCORD CALL
+log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
   shortcuts:
     whatsappcall: network == 'udp' and (dst_port == 3478 or dst_port == 4244 or dst_port == 5222-5228 or dst_port == 5242 or dst_port == 45395 or dst_port == 50318 or dst_port == 59234 or dst_port == 34784 or dst_port == 5349)
+    discordcall: network == 'udp' and dst_port >= 50000 and dst_port <=65535 and match_ruleset('discordvoicecidr')
 hosts: #!replace
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
@@ -95,6 +96,7 @@ dns: #!replace
     - '+.tripcdn.com'
     - '+.trip.com'
     - '+aliyuncs.com'
+    - '*.discord.media'
   nameserver:
     - 114.114.114.114
     - 223.5.5.5
@@ -196,6 +198,10 @@ rule-providers: #!replace
   tiktok:
     behavior: domain
     url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/tiktok.txt"
+    interval: 345600
+  discordvoicecidr:
+    behavior: ipcidr
+    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/discordvoicecidr.txt"
     interval: 345600
 proxy-groups: #!replace
   - name: Main Server
@@ -346,35 +352,36 @@ proxy-groups: #!replace
       - DIRECT
 
 rules: #!replace
-  - GEOSITE,openai,REJECT,no-track
-  - RULE-SET,google,Main Server,no-track
-  - GEOSITE,youtube,REJECT,no-track
-  - GEOSITE,netflix,REJECT,no-track
-  - GEOSITE,spotify,REJECT,no-track
-  - GEOSITE,whatsapp,REJECT,no-track
-  - GEOSITE,instagram,REJECT,no-track
-  - GEOSITE,vk,REJECT,no-track
-  - IP-CIDR,17.188.143.7,REJECT,no-track
-  - DOMAIN,ftp.apps.wannaflix.net,REJECT,no-track
-  - DOMAIN-SUFFIX,wannaflix.net,REJECT,no-track
-  - DOMAIN-SUFFIX,wannaflix.link,Main Server,no-track
-  - RULE-SET,tiktok,REJECT,no-track
-  - RULE-SET,gfw,Main Server,no-track
-  - DOMAIN-KEYWORD,trip.com,REJECT,no-track
-  - DOMAIN-KEYWORD,tripcdn.com,REJECT,no-track
-  - RULE-SET,private,REJECT,no-track
-  - IP-ASN,62014,REJECT,no-track
-  - IP-ASN,59930,REJECT,no-track
-  - IP-ASN,44907,REJECT,no-track
-  - IP-ASN,211157,REJECT,no-track
-  - RULE-SET,telegramcidr,REJECT,no-track
-  - RULE-SET,telegramdomain,REJECT,no-track
+  - SCRIPT,discordcall,DIRECT,no-track
+  - GEOSITE,openai,OpenAI
+  - RULE-SET,google,Main Server
+  - GEOSITE,youtube,YouTube
+  - GEOSITE,netflix,Netflix
+  - GEOSITE,spotify,Spotify
+  - GEOSITE,whatsapp,WhatsApp
+  - GEOSITE,instagram,Instagram
+  - GEOSITE,vk,VK
+  - IP-CIDR,17.188.143.7,DIRECT,no-resolve
+  - DOMAIN,ftp.apps.wannaflix.net,DIRECT
+  - DOMAIN-SUFFIX,wannaflix.net,DIRECT
+  - DOMAIN-SUFFIX,wannaflix.link,Main Server
+  - RULE-SET,tiktok,TikTok
+  - RULE-SET,gfw,Main Server
+  - DOMAIN-KEYWORD,trip.com,DIRECT
+  - DOMAIN-KEYWORD,tripcdn.com,DIRECT
+  - RULE-SET,private,DIRECT
+  - IP-ASN,62014,Telegram,no-resolve
+  - IP-ASN,59930,Telegram,no-resolve
+  - IP-ASN,44907,Telegram,no-resolve
+  - IP-ASN,211157,Telegram,no-resolve
+  - RULE-SET,telegramcidr,Telegram,no-resolve #no need to resolve IP adresses
+  - RULE-SET,telegramdomain,Telegram
   - RULE-SET,lancidr,DIRECT,no-resolve
-  - RULE-SET,cncidr,REJECT,no-track
-  - RULE-SET,apple,REJECT,no-track
-  - GEOSITE,apple,REJECT,no-track
-  - GEOSITE,icloud,REJECT,no-track
-  - DOMAIN,iosapps.itunes.apple.com,REJECT,no-track
+  - RULE-SET,cncidr,DIRECT,no-resolve
+  - RULE-SET,apple,DIRECT
+  - GEOSITE,apple,DIRECT
+  - GEOSITE,icloud,DIRECT
+  - DOMAIN,iosapps.itunes.apple.com,DIRECT
   - GEOSITE,discord,Discord
   - SCRIPT,whatsappcall,DIRECT,no-resolve
 #  - IP-CIDR,9.9.9.10,DNS,no-resolve
@@ -383,9 +390,9 @@ rules: #!replace
 #  - IP-CIDR,8.8.4.4,DNS,no-resolve
 #  - IP-CIDR,1.1.1.1,DNS,no-resolve
 #  - DOMAIN-SUFFIX,dns10.quad9.net,DNS
-  - RULE-SET,proxyrules,Main Server,no-track
-  - RULE-SET,directrules,REJECT,no-track
-  - DOMAIN-KEYWORD,tiktokcdn,REJECT,no-track
+  - RULE-SET,proxyrules,Main Server
+  - RULE-SET,directrules,DIRECT
+  - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
   - RULE-SET,rejectrules,REJECT,no-track
-  - GEOIP,CN,REJECT,no-track
-  - MATCH,REJECT,no-track
+  - GEOIP,CN,DIRECT
+  - MATCH,Final
