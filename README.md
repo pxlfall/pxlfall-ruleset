@@ -1,9 +1,11 @@
 # pxlfall's custom ruleset for use in Stash (iOS) rule-based proxy application
-[Click here](https://link.stash.ws/install-override/raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/pxlfall.stoverride) to install the override configuration file
+[Click here](https://link.stash.ws/install-override/raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/pxlfall.stoverride) to install the override configuration file, or [click here](https://link.stash.ws/install-config/raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/pxlfall.yaml) to install the config file. Beware that the config assumes that the sub-store has been configured to give output by this address: "http://sub.store/download/shadowrocket%20pxlfall?target=Stash".
+Currently ALL UDP traffic is being treated with DIRECT rule. Solves issues with WhatsApp voice calls and Discord's "No Route" error.
+
 ## To-do list:
 - [x] Implement good-enough all-around rule-set
 - [ ] Figure out how to manually list servers in 'proxy-groups' from 'proxy-provider'
-- [ ] Add 'url-test' proxy group for the following:
+- [ ] Add 'url-test' proxy group for the following: (STASH IS BORKED, NO URL-TEST)
     - [x] TikTok
     - [x] YouTube (done by GEOSITE)
     - [x] Spotify (done by GEOSITE)
@@ -18,10 +20,10 @@
     - [ ] 1Password (may be hidden)
     - [ ] Discord
     - [ ] Steam
-- [ ] Rewrite the service provider config, so that only 'proxy-provider' is being used
+- [x] Rewrite the service provider config, so that only 'proxy-provider' is being used
 - [ ] Create a mirror config for use in Clash for Windows
 - [ ] Add custom specific Windows PC rules (i.e. '- PROCESS-NAME,迅游加速器.exe,DIRECT')
-- [x] Create a basic tile, on/off switch, total data received/sent in the last 24h (if possible), current selected general purpose server (latest update implemented iOS 17 Widgets)
+- [ ] Create a basic tile, on/off switch, total data received/sent in the last 24h (if possible), current selected general purpose server (latest update implemented iOS 17 Widgets)
 - [ ] End goal is impossible to achieve, but continously fix rare-case issues with routing rules.
 
 ## Acknowledgements
@@ -31,4 +33,4 @@ I would like to express my sincere appreciation to the contributors of the follo
 - v2fly for providing an open [domain-list-community](https://github.com/v2fly/domain-list-community), which is widely recognized by client apps as a go-to source for GEOSITE rules.
 - Koolson for making [Qure](https://github.com/Koolson/Qure) icon pack, which can be used in this current override config.
 - Z-Siqi for creating an extensive list of [custom rules](https://github.com/Z-Siqi/Clash-for-Windows_Rule/) per service
-- Clash team and their [wiki](https://en.clash.wiki/)
+- Clash team and their useful [wiki](https://en.clash.wiki/)
