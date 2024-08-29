@@ -5,7 +5,7 @@ mixed-port: 7893
 allow-lan: false
 mode: rule
 log-level: warning
-ipv6: true
+ipv6: false
 script:
   shortcuts:
     udp-relay-disable: network == 'udp'
@@ -101,7 +101,8 @@ dns:
     - speedtest.cros.wr.pvp.net
     - '+.tripcdn.com'
     - '+.trip.com'
-    - '+aliyuncs.com'
+    - '+.aliyuncs.com'
+    - '*.discord.media'
   nameserver:
     - 114.114.114.114
     - 223.5.5.5
@@ -126,9 +127,10 @@ dns:
       - '+.googleapis.com'
       - '+.gvt1.com'
   nameserver-policy:
+    '+.spotify.com': 'https://dns10.quad9.net/dns-query'
     '+.trip.com': 'https://dns10.quad9.net/dns-query'
     '+.tripcdn.com': 'https://dns10.quad9.net/dns-query'
-    '+.scdn.co': 'https://1.1.1.1/dns-query'
+    '+.scdn.co': 'https://dns10.quad9.net/dns-query'
     '+.d.meituan.net': '114.114.114.114'
     '+.d.meituan.com': '114.114.114.114'
     '+.neixin.cn': '114.114.114.114'
@@ -150,73 +152,99 @@ dns:
     '+.vk-portal.net': 'https://1.1.1.1/dns-query'
     '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
     '+.aliyuncs.com': 'https://dns10.quad9.net/dns-query'
+    '+.discord.media': 114.114.114.114
   follow-rule: false
 proxy-providers: {wannaflix: {benchmark-url: 'http://www.gstatic.com/generate_204', interval: 21600, url: 'http://sub.store/download/shadowrocket%20pxlfall?target=Stash', benchmark-timeout: 300}}
 rule-providers:
   directrules:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/direct.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/direct.yaml"
     interval: 345600
+    path: ./direct.yaml
   rejectrules:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/reject.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/reject.yaml"
     interval: 345600
+    path: ./reject.yaml
   apple:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/apple.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/apple.yaml"
     interval: 345600
+    path: ./apple.yaml
   icloud:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/icloud.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/icloud.yaml"
     interval: 345600
+    path: ./icloud.yaml
   google:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/google.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/google.yaml"
     interval: 345600
+    path: ./google.yaml
   proxyrules:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/proxy.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/proxy.yaml"
     interval: 345600
+    path: ./proxy.yaml
   gfw:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/gfw.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/gfw.yaml"
     interval: 345600
+    path: ./gfw.yaml
   telegramdomain:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/telegram.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/telegram.yaml"
     interval: 345600
+    path: ./telegram.yaml
   private:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/private.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/private.yaml"
     interval: 345600
+    path: ./private.yaml
   telegramcidr:
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/telegramcidr.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/telegramcidr.yaml"
     interval: 345600
+    path: ./telegramcidr.yaml
   cncidr:
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/cncidr.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/cncidr.yaml"
     interval: 345600
+    path: ./cncidr.yaml
   lancidr:
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/lancidr.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/lancidr.yaml"
     interval: 345600
+    path: ./lancidr.yaml
   tiktok:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/tiktok.txt"
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@newera/ruleset/tiktok.yaml"
     interval: 345600
+    path: ./tiktok.yaml
 proxy-groups:
   - name: Main Server
     type: select
     use:
       - wannaflix
-    # url: 'http://www.gstatic.com/generate_204'
-    # interval: 600
-
+      # url: 'http://www.gstatic.com/generate_204'
+      # interval: 600
   - name: Netflix
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png'
-   # url: 'http://www.netflix.com'
+    # url: 'http://www.netflix.com'
     proxies:
       - Main Server
     use:
@@ -225,7 +253,6 @@ proxy-groups:
     # filter: 'CHINA'
     # include-all: true
     # interval: 300
-
   - name: TikTok
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png'
@@ -233,10 +260,9 @@ proxy-groups:
       - Main Server
     use:
       - wannaflix
-    # url: 'https://www.tiktok.com/'
-    # interval: 300
-    # lazy: true
-
+      # url: 'https://www.tiktok.com/'
+      # interval: 300
+      # lazy: true
   - name: YouTube
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png'
@@ -250,7 +276,6 @@ proxy-groups:
     # url: 'http://www.youtube.com/generate_204'
     # interval: 300
     # lazy: true
-
   - name: Telegram
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png'
@@ -263,7 +288,6 @@ proxy-groups:
     # filter: '^(?=.*SS)(?=.*CHINA)(?=.*(?:US|Japan|Germany|France|Canada|UK)).*$'
     # include-all: true
     # interval: 300
-
   - name: Spotify
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Spotify.png'
@@ -273,9 +297,8 @@ proxy-groups:
       - DIRECT
     use:
       - wannaflix
-    # lazy: true
-    # interval: 300
-
+      # lazy: true
+      # interval: 300
   - name: OpenAI
     type: select
     icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/openai.png'
@@ -285,9 +308,8 @@ proxy-groups:
       - DIRECT
     use:
       - wannaflix
-    # lazy: true
-    # interval: 300
-
+      # lazy: true
+      # interval: 300
   - name: WhatsApp
     type: select
     icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/whatsapp.png'
@@ -299,7 +321,6 @@ proxy-groups:
     lazy: true
     # filter: 'SS'
     # interval: 300
-
   - name: Instagram
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png'
@@ -308,9 +329,8 @@ proxy-groups:
       - Main Server
     use:
       - wannaflix
-    # lazy: true
-    # interval: 300
-
+      # lazy: true
+      # interval: 300
   - name: VK
     type: select
     icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/vk.png'
@@ -318,29 +338,24 @@ proxy-groups:
     proxies:
       - DIRECT
       - Main Server
+      - turkey1
     use:
       - wannaflix
-    # lazy: true
-    # interval: 300
-
-#  - name: DNS
-#    type: url-test
-#    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/cloudflare.png'
-#    url: 'https://dns10.quad9.net/dns-query'
-#    proxies:
-#      - Main Server
-#    use:
-#      - wannaflix
-#    lazy: true
-#    interval: 300
-
+    include-all: true
+  - name: test-relay
+    type: relay
+    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png'
+    # url: 'http://www.instagram.com'
+    proxies:
+      - Main Server
+      - VK
   - name: Final
     type: select
     proxies:
       - Main Server
       - DIRECT
-
 rules:
+  - DOMAIN-SUFFIX,2ip.ru,test-relay
   - GEOSITE,openai,OpenAI
   - RULE-SET,google,Main Server
   - GEOSITE,youtube,YouTube
@@ -366,20 +381,20 @@ rules:
   - RULE-SET,telegramdomain,Telegram
   - RULE-SET,lancidr,DIRECT,no-resolve
   - SCRIPT,udp-relay-disable,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,atkingdom-network.com,Main Server
   - RULE-SET,cncidr,DIRECT,no-resolve
   - RULE-SET,apple,DIRECT
   - GEOSITE,apple,DIRECT
   - GEOSITE,icloud,DIRECT
   - DOMAIN,iosapps.itunes.apple.com,DIRECT
-#  - IP-CIDR,9.9.9.10,DNS,no-resolve
-#  - IP-CIDR,149.112.112.10,DNS,no-resolve
-#  - IP-CIDR,8.8.8.8,DNS,no-resolve
-#  - IP-CIDR,8.8.4.4,DNS,no-resolve
-#  - IP-CIDR,1.1.1.1,DNS,no-resolve
-#  - DOMAIN-SUFFIX,dns10.quad9.net,DNS
   - RULE-SET,proxyrules,Main Server
   - RULE-SET,directrules,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
   - RULE-SET,rejectrules,REJECT,no-track
   - GEOIP,CN,DIRECT
   - MATCH,Final
+proxies:
+  - name: turkey1
+    port: 8080
+    server: 38.156.75.26
+    type: http
