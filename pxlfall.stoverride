@@ -1,108 +1,92 @@
-name: pxlfall's custom ruleset
-desc: Last updated on Aug 8th, 2024, 14:24
+name: pxlfall's override for basic WF API
+desc: Last update on 24.10.21 04:09
+
+# 1. No GEOSITE anymore!
+# 2. I wonder if we can turn it into mixin for CFW tho...
+# 3. Changed DNS again, extensive testing!
+
+port: 7890 #!replace
+socks-port: 7891 #!replace
+redir-port: 7892 #!replace
+mixed-port: 7893 #!replace
+allow-lan: false #!replace
+mode: rule #!replace
 log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
   shortcuts:
-    whatsappcall: network == 'udp' and (dst_port == 3478 or dst_port == 4244 or dst_port == 5222-5228 or dst_port == 5242 or dst_port == 45395 or dst_port == 50318 or dst_port == 59234 or dst_port == 34784 or dst_port == 5349)
+    udp-relay-disable: network == 'udp'
 hosts: #!replace
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
   'metrics-picture.d.meituan.net': 103.37.152.48
   'maplocatesdksnapshot.d.meituan.net': 103.37.152.48
   'route-stats.d.meituan.net': 101.236.69.94
+external-controller: 0.0.0.0:9090 #!replace
 dns: #!replace
   enable: true
   ipv6: true
   listen: 0.0.0.0:53
   default-nameserver:
-    - 223.5.5.5
     - 114.114.114.114
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - '*.lan'
-    - stun.*.*.*
-    - stun.*.*
-    - time.windows.com
-    - time.nist.gov
-    - time.apple.com
-    - time.asia.apple.com
+    - 'stun.*.*.*'
+    - 'stun.*.*'
+    - 'time.windows.com'
+    - 'time.nist.gov'
+    - 'time.apple.com'
+    - 'time.asia.apple.com'
     - '*.ntp.org.cn'
     - '*.openwrt.pool.ntp.org'
-    - time1.cloud.tencent.com
-    - time.ustc.edu.cn
-    - pool.ntp.org
-    - ntp.ubuntu.com
-    - ntp.aliyun.com
-    - ntp1.aliyun.com
-    - ntp2.aliyun.com
-    - ntp3.aliyun.com
-    - ntp4.aliyun.com
-    - ntp5.aliyun.com
-    - ntp6.aliyun.com
-    - ntp7.aliyun.com
-    - time1.aliyun.com
-    - time2.aliyun.com
-    - time3.aliyun.com
-    - time4.aliyun.com
-    - time5.aliyun.com
-    - time6.aliyun.com
-    - time7.aliyun.com
+    - 'time1.cloud.tencent.com'
+    - 'time.ustc.edu.cn'
+    - 'pool.ntp.org'
+    - 'ntp.ubuntu.com'
+    - 'ntp.aliyun.com'
+    - 'ntp1.aliyun.com'
+    - 'ntp2.aliyun.com'
+    - 'ntp3.aliyun.com'
+    - 'ntp4.aliyun.com'
+    - 'ntp5.aliyun.com'
+    - 'ntp6.aliyun.com'
+    - 'ntp7.aliyun.com'
+    - 'time1.aliyun.com'
+    - 'time2.aliyun.com'
+    - 'time3.aliyun.com'
+    - 'time4.aliyun.com'
+    - 'time5.aliyun.com'
+    - 'time6.aliyun.com'
+    - 'time7.aliyun.com'
     - '*.time.edu.cn'
-    - time1.apple.com
-    - time2.apple.com
-    - time3.apple.com
-    - time4.apple.com
-    - time5.apple.com
-    - time6.apple.com
-    - time7.apple.com
-    - time1.google.com
-    - time2.google.com
-    - time3.google.com
-    - time4.google.com
-    - music.163.com
-    - '*.music.163.com'
-    - '*.126.net'
-    - musicapi.taihe.com
-    - music.taihe.com
-    - songsearch.kugou.com
-    - trackercdn.kugou.com
-    - '*.kuwo.cn'
-    - api-jooxtt.sanook.com
-    - api.joox.com
-    - joox.com
-    - y.qq.com
-    - '*.y.qq.com'
-    - streamoc.music.tc.qq.com
-    - mobileoc.music.tc.qq.com
-    - isure.stream.qqmusic.qq.com
-    - dl.stream.qqmusic.qq.com
-    - aqqmusic.tc.qq.com
-    - amobile.music.tc.qq.com
-    - '*.xiami.com'
-    - '*.music.migu.cn'
-    - music.migu.cn
+    - 'time1.apple.com'
+    - 'time2.apple.com'
+    - 'time3.apple.com'
+    - 'time4.apple.com'
+    - 'time5.apple.com'
+    - 'time6.apple.com'
+    - 'time7.apple.com'
+    - 'time1.google.com'
+    - 'time2.google.com'
+    - 'time3.google.com'
+    - 'time4.google.com'
     - '*.msftconnecttest.com'
     - '*.msftncsi.com'
-    - localhost.ptlogin2.qq.com
     - '*.*.*.srv.nintendo.net'
     - '*.*.stun.playstation.net'
-    - xbox.*.*.microsoft.com
+    - 'xbox.*.*.microsoft.com'
     - '*.ipv6.microsoft.com'
     - '*.*.xboxlive.com'
-    - speedtest.cros.wr.pvp.net
-    - '+.tripcdn.com'
-    - '+.trip.com'
-    - '+aliyuncs.com'
+    - 'speedtest.cros.wr.pvp.net'
   nameserver:
     - 114.114.114.114
     - 223.5.5.5
-    - system
   skip-cert-verify: true
   fallback:
-    - https://dns10.quad9.net/dns-query
-    - tls://8.8.8.8:853
+    - 1.1.1.1
+    - 2606:4700:4700::1001
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -119,250 +103,268 @@ dns: #!replace
       - '+.googleapis.com'
       - '+.gvt1.com'
   nameserver-policy:
-    '+.trip.com': 'https://dns10.quad9.net/dns-query'
-    '+.tripcdn.com': 'https://dns10.quad9.net/dns-query'
-    '+.scdn.co': 'https://1.1.1.1/dns-query'
-    '+.d.meituan.net': '114.114.114.114'
-    '+.d.meituan.com': '114.114.114.114'
-    '+.neixin.cn': '114.114.114.114'
-    '+.tsumino.com': 'https://1.1.1.1/dns-query'
-    '+.nhentai.net': 'https://dns10.quad9.net/dns-query'
-    'www.nhentai.net': 'https://dns10.quad9.net/dns-query'
-    '+.nhentai.com': 'https://dns10.quad9.net/dns-query'
-    '+.nhentaimg.com': 'https://dns10.quad9.net/dns-query'
-    '+.nhentai.to': 'https://dns10.quad9.net/dns-query'
-    '+.nhentai.xxx': 'https://dns10.quad9.net/dns-query'
+    'canvaz.scdn.co': '1.1.1.1'
     '+.pornhub.com': 'https://8.8.8.8/dns-query'
     '+.pornolab.net': 'https://1.1.1.1/dns-query'
     '+.eporner.com': 'https://1.1.1.1/dns-query'
     '+.xvideos.com': 'https://1.1.1.1/dns-query'
-    '+.tiktokv.com': 'https://1.1.1.1/dns-query'
-    '+.x.com': 'https://1.1.1.1/dns-query'
-    '+.vk.com': 'https://1.1.1.1/dns-query'
-    '+.userapi.com': 'https://1.1.1.1/dns-query'
-    '+.vk-portal.net': 'https://1.1.1.1/dns-query'
-    '+.vkuservideo.net': 'https://1.1.1.1/dns-query'
+    '+.tiktokv.com': '8.8.8.8'
+    '+.atkgirlfriends.com': 'https://1.1.1.1/dns-query'
     '+.aliyuncs.com': 'https://dns10.quad9.net/dns-query'
   follow-rule: false
 rule-providers: #!replace
   directrules:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/direct.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/direct.yaml"
     interval: 345600
   rejectrules:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/reject.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/reject.yaml"
     interval: 345600
   apple:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/apple.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/apple.yaml"
     interval: 345600
   icloud:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/icloud.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/icloud.yaml"
     interval: 345600
   google:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/google.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/google.yaml"
     interval: 345600
   proxyrules:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/proxy.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/proxy.yaml"
     interval: 345600
   gfw:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/gfw.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/gfw.yaml"
     interval: 345600
   telegramdomain:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/telegram.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/telegram.yaml"
     interval: 345600
   private:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/private.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/private.yaml"
     interval: 345600
   telegramcidr:
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/telegramcidr.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/telegramcidr.yaml"
     interval: 345600
   cncidr:
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/cncidr.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/cncidr.yaml"
     interval: 345600
   lancidr:
     behavior: ipcidr
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/lancidr.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/lancidr.yaml"
     interval: 345600
   tiktok:
     behavior: domain
-    url: "https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/ruleset/tiktok.txt"
+    url: "https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/ruleset/tiktok.yaml"
     interval: 345600
 proxy-groups: #!replace
-  - name: Main Server
+  - name: MainServer
     type: select
-    use:
-      - wannaflix
-    # url: 'http://www.gstatic.com/generate_204'
-    # interval: 600
-
+    proxies:
+      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
+      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
+      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
+      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
+      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
+      - '[SS] [CHINA] US Los Angeles NETFLIX'
+      - '[SS] [CHINA] US New York NETFLIX'
+      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
+      - '[SS] [CHINA] Australia'
+      - '[SS] [CHINA] Canada NETFLIX'
+      - '[SS] [CHINA] France NETFLIX'
+      - '[SS] [CHINA] Germany NETFLIX'
+      - '[SS] [CHINA] Hong Kong NETFLIX'
+      - '[SS] [CHINA] Japan NETFLIX'
+      - '[SS] [CHINA] Korea NETFLIX'
+      - '[SS] [CHINA] Singapore NETFLIX'
+      - '[SS] [CHINA] Taiwan NETFLIX'
+      - '[SS] [CHINA] India'
+      - '[CHINA] Daily Usage 1 (Recommended) '
+      - '[CHINA] Daily Usage 2 (Recommended) '
+      - '[CHINA] Daily Usage 3 (Recommended) '
+      - '[CHINA] Daily Usage 4 (Recommended) '
+      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify '
+      - '[CHINA] US Los Angeles NETFLIX '
+      - '[CHINA] US New York NETFLIX '
+      - '[CHINA] UK NETFLIX / BBC iPlayer '
+      - '[CHINA] Australia '
+      - '[CHINA] Canada NETFLIX '
+      - '[CHINA] France NETFLIX '
+      - '[CHINA] Germany NETFLIX '
+      - '[CHINA] Hong Kong NETFLIX '
+      - '[CHINA] Japan NETFLIX '
+      - '[CHINA] Korea NETFLIX '
+      - '[CHINA] Singapore NETFLIX '
+      - '[CHINA] Taiwan NETFLIX '
+      - '[CHINA] India '
+      - 'STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify '
+      - 'Australia '
+      - 'Brazil NETFLIX '
+      - 'Canada NETFLIX '
+      - 'China Mainland (QQ/iQiyi/PPTV, etc) '
+      - 'France NETFLIX '
+      - 'Germany NETFLIX '
+      - 'Hong Kong NETFLIX '
+      - 'India '
+      - 'Japan NETFLIX '
+      - 'Korea NETFLIX '
+      - 'Netherlands NETFLIX '
+      - 'Singapore NETFLIX '
+      - 'South Africa NETFLIX '
+      - 'Turkey NETFLIX '
+      - 'UK NETFLIX / BBC iPlayer '
+      - 'US Los Angeles NETFLIX '
+      - 'US New York NETFLIX '
+      - 'TORRENTING SERVER (France) '
   - name: Netflix
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png'
-   # url: 'http://www.netflix.com'
     proxies:
-      - Main Server
-    use:
-      - wannaflix
-    lazy: true
-    # filter: 'CHINA'
-    # include-all: true
-    # interval: 300
-
+      - MainServer
+    include-all: true
   - name: TikTok
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png'
     proxies:
-      - Main Server
-    use:
-      - wannaflix
-    # url: 'https://www.tiktok.com/'
-    # interval: 300
-    # lazy: true
-
+      - MainServer
+    include-all: true
   - name: YouTube
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png'
     proxies:
-      - Main Server
-      - DIRECT
-    use:
-      - wannaflix
-    filter: 'CHINA'
-    # include-all: true
-    # url: 'http://www.youtube.com/generate_204'
-    # interval: 300
-    # lazy: true
-
+      - MainServer
+    include-all: true
   - name: Telegram
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png'
     url: 'http://www.telegram.org'
     proxies:
-      - Main Server
-    use:
-      - wannaflix
-    lazy: true
-    # filter: '^(?=.*SS)(?=.*CHINA)(?=.*(?:US|Japan|Germany|France|Canada|UK)).*$'
-    # include-all: true
-    # interval: 300
-
+      - MainServer
+    include-all: true
   - name: Spotify
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Spotify.png'
     # url: 'http://www.spotify.com/'
     proxies:
-      - Main Server
+      - MainServer
       - DIRECT
-    use:
-      - wannaflix
-    # lazy: true
-    # interval: 300
-
+    include-all: true
   - name: OpenAI
     type: select
-    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/openai.png'
-    # url: 'http://www.spotify.com/'
+    icon: 'https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/icons/openai.png'
     proxies:
-      - Main Server
-      - DIRECT
-    use:
-      - wannaflix
-    # lazy: true
-    # interval: 300
-
+      - MainServer
+    include-all: true
   - name: WhatsApp
     type: select
-    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/whatsapp.png'
-    # url: 'http://www.whatsapp.com'
+    icon: 'https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/icons/whatsapp.png'
     proxies:
-      - Main Server
-    use:
-      - wannaflix
-    lazy: true
-    # filter: 'SS'
-    # interval: 300
-
+      - MainServer
+    include-all: true
   - name: Instagram
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png'
-    # url: 'http://www.instagram.com'
     proxies:
-      - Main Server
-    use:
-      - wannaflix
-    # lazy: true
-    # interval: 300
-
-  - name: Discord
-    type: select
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Discord.png'
-   # url: 'http://www.netflix.com'
-    proxies:
-      - Main Server
-    use:
-      - wannaflix
-    # lazy: true
-    # filter: 'CHINA'
-    # include-all: true
-    # interval: 300
-
+      - MainServer
+    include-all: true
   - name: VK
     type: select
-    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/vk.png'
-    # url: 'http://www.vk.com'
+    icon: 'https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/icons/vk.png'
     proxies:
       - DIRECT
-      - Main Server
-    use:
-      - wannaflix
-    # lazy: true
-    # interval: 300
-
-#  - name: DNS
-#    type: url-test
-#    icon: 'https://raw.githubusercontent.com/pxlfall/pxlfall-ruleset/main/icons/cloudflare.png'
-#    url: 'https://dns10.quad9.net/dns-query'
-#    proxies:
-#      - Main Server
-#    use:
-#      - wannaflix
-#    lazy: true
-#    interval: 300
-
+      - MainServer
+    include-all: true
   - name: Final
     type: select
     proxies:
-      - Main Server
+      - MainServer
       - DIRECT
-
 rules: #!replace
-  - GEOSITE,openai,OpenAI
-  - RULE-SET,google,Main Server
-  - GEOSITE,youtube,YouTube
-  - GEOSITE,netflix,Netflix
-  - GEOSITE,spotify,Spotify
-  - GEOSITE,whatsapp,WhatsApp
-  - GEOSITE,instagram,Instagram
-  - GEOSITE,vk,VK
-  - IP-CIDR,17.188.143.7,DIRECT,no-resolve
+  - RULE-SET,google,MainServer
+  - DOMAIN,yt3.ggpht.com,YouTube
+  - DOMAIN-SUFFIX,youtube-nocookie.com,YouTube
+  - DOMAIN-SUFFIX,googlevideo.com,YouTube
+  - DOMAIN-SUFFIX,ggpht.com,YouTube
+  - DOMAIN-SUFFIX,gvt1.com,YouTube
+  - DOMAIN-SUFFIX,gvt2.com,YouTube
+  - DOMAIN-SUFFIX,youtu.be,YouTube
+  - DOMAIN-SUFFIX,ytimg.com,YouTube
+  - DOMAIN-SUFFIX,music.youtube.com,YouTube
+  - DOMAIN-SUFFIX,youtubeeducation.com,YouTube
+  - DOMAIN-SUFFIX,wide-youtube.l.google.com,YouTube
+  - DOMAIN-SUFFIX,youtube.com,YouTube
+  - DOMAIN-SUFFIX,youtube-ui.l.google.com,YouTube
+  - DOMAIN-SUFFIX,withyoutube.com,YouTube
+  - DOMAIN-SUFFIX,youtubeembeddedplayer.googleapis.com,YouTube
+  - DOMAIN-SUFFIX,youtubefanfest.com,YouTube
+  - DOMAIN-SUFFIX,youtubegaming.com,YouTube
+  - DOMAIN-SUFFIX,youtubego.com,YouTube
+  - DOMAIN-SUFFIX,youtubei.googleapis.com,YouTube
+  - DOMAIN-SUFFIX,youtubekids.com,YouTube
+  - DOMAIN-SUFFIX,youtubemobilesupport.com,YouTube
+  - DOMAIN-SUFFIX,yt.be,YouTube
+  - DOMAIN-SUFFIX,wechat.com,DIRECT
+  - DOMAIN-SUFFIX,qpic.cn,DIRECT
+  - DOMAIN-SUFFIX,wechatpay.cn,DIRECT
+  - DOMAIN-SUFFIX,qlogo.cn,DIRECT
+  - DOMAIN-SUFFIX,wx.qq.com,DIRECT
+  - DOMAIN-SUFFIX,servicewechat.com,DIRECT
+  - DOMAIN-SUFFIX,scdsjzx.com,DIRECT
+  - DOMAIN-SUFFIX,servicewechat.com,DIRECT
+  - DOMAIN-SUFFIX,weixinconf.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wxs.qq.com,DIRECT
+  - DOMAIN-SUFFIX,weixinconf.qq.com,DIRECT
+  - DOMAIN-SUFFIX,wechatapp.com,DIRECT
+  - DOMAIN-SUFFIX,xdow.net,DIRECT
+  - DOMAIN-KEYWORD,weixin,DIRECT
+  - DOMAIN-KEYWORD,wechat,DIRECT
+  - IP-CIDR,43.129.255.38/18,DIRECT,no-resolve
+  - IP-CIDR,129.206.106.198/16,DIRECT,no-resolve
+  - IP-CIDR,129.226.106.198/20,DIRECT,no-resolve
+  - IP-CIDR,120.232.51.42/16,DIRECT,no-resolve
+  - IP-CIDR,202.108.22.5/18,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,pscdn.co,Spotify
+  - DOMAIN-SUFFIX,scdn.co,Spotify
+  - DOMAIN-SUFFIX,spoti.fi,Spotify
+  - DOMAIN-SUFFIX,spotify.com,Spotify
+  - DOMAIN-SUFFIX,spotifycdn.net,Spotify
+  - DOMAIN-KEYWORD,spotify,Spotify
+  - DOMAIN-SUFFIX,whatsapp.com,WhatsApp
+  - DOMAIN-SUFFIX,whatsapp.net,WhatsApp
+  - DOMAIN-SUFFIX,ai.com,OpenAI
+  - DOMAIN-SUFFIX,api.revenuecat.com,OpenAI
+  - DOMAIN-SUFFIX,browser-intake-datadoghq.com,OpenAI
+  - DOMAIN-SUFFIX,chatgpt.com,OpenAI
+  - DOMAIN-SUFFIX,chat.openai.com,OpenAI
+  - DOMAIN-SUFFIX,auth0.openai.com,OpenAI
+  - DOMAIN-SUFFIX,cdn.openai.com,OpenAI
+  - DOMAIN-SUFFIX,oaistatic.com,OpenAI
+  - DOMAIN-SUFFIX,oaiusercontent.com,OpenAI
+  - DOMAIN-SUFFIX,openai.com,OpenAI
+  - DOMAIN-SUFFIX,openaiapi-site.azureedge.net,OpenAI
+  - DOMAIN-SUFFIX,openaicom.imgix.net,OpenAI
+  - DOMAIN-SUFFIX,openaicomproductionae4b.blob.core.windows.net,OpenAI
+  - DOMAIN-SUFFIX,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,OpenAI
+  - DOMAIN-SUFFIX,ingest.sentry.io,OpenAI
+  - DOMAIN-SUFFIX,ios.chat.openai.com.cdn.cloudflare.net,OpenAI
+  - DOMAIN-SUFFIX,client.crisp.chat,OpenAI
+  - DOMAIN-SUFFIX,o33249.ingest.sentry.io,OpenAI
   - DOMAIN,ftp.apps.wannaflix.net,DIRECT
   - DOMAIN-SUFFIX,wannaflix.net,DIRECT
-  - DOMAIN-SUFFIX,wannaflix.link,Main Server
+  - DOMAIN-SUFFIX,wannaflix.link,DIRECT
+  - DOMAIN-SUFFIX,wannaflix.com,MainServer
+  - DOMAIN,itunes.apple.com,DIRECT
   - RULE-SET,tiktok,TikTok
-  - RULE-SET,gfw,Main Server
   - DOMAIN-KEYWORD,trip.com,DIRECT
   - DOMAIN-KEYWORD,tripcdn.com,DIRECT
-  - RULE-SET,private,DIRECT
   - IP-ASN,62014,Telegram,no-resolve
   - IP-ASN,59930,Telegram,no-resolve
   - IP-ASN,44907,Telegram,no-resolve
@@ -370,22 +372,150 @@ rules: #!replace
   - RULE-SET,telegramcidr,Telegram,no-resolve #no need to resolve IP adresses
   - RULE-SET,telegramdomain,Telegram
   - RULE-SET,lancidr,DIRECT,no-resolve
+  - SCRIPT,udp-relay-disable,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,atkingdom-network.com,MainServer
+  - DOMAIN-SUFFIX,netflix.com,Netflix
+  - DOMAIN-SUFFIX,netflix.net,Netflix
+  - DOMAIN-SUFFIX,nflxext.com,Netflix
+  - DOMAIN-SUFFIX,nflximg.com,Netflix
+  - DOMAIN-SUFFIX,nflximg.net,Netflix
+  - DOMAIN-SUFFIX,nflxso.net,Netflix
+  - DOMAIN-SUFFIX,nflxvideo.net,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest0.com,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest1.com,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest2.com,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest3.com,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest4.com,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest5.com,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest6.com,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest7.com,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest8.com,Netflix
+  - DOMAIN-SUFFIX,netflixdnstest9.com,Netflix
+  - DOMAIN-KEYWORD,apiproxy-http,Netflix
+  - DOMAIN-KEYWORD,ichnaea-web-,Netflix
+  - IP-CIDR,23.246.0.0/18,Netflix,no-resolve
+  - IP-CIDR,37.77.184.0/21,Netflix,no-resolve
+  - IP-CIDR,45.57.0.0/17,Netflix,no-resolve
+  - IP-CIDR,64.120.128.0/17,Netflix,no-resolve
+  - IP-CIDR,66.197.128.0/17,Netflix,no-resolve
+  - IP-CIDR,108.175.32.0/20,Netflix,no-resolve
+  - IP-CIDR,192.173.64.0/18,Netflix,no-resolve
+  - IP-CIDR,198.38.96.0/19,Netflix,no-resolve
+  - IP-CIDR,198.45.48.0/20,Netflix,no-resolve
+  - IP-CIDR,103.87.204.0/22,Netflix,no-resolve
+  - IP-CIDR,185.2.0.0/16,Netflix,no-resolve
+  - IP-CIDR,185.9.0.0/16,Netflix,no-resolve
+  - IP-CIDR,207.45.72.0/22,Netflix,no-resolve
+  - IP-CIDR,208.75.76.0/22,Netflix,no-resolve
+  - IP-CIDR,52.89.124.203/32,Netflix,no-resolve
+  - IP-CIDR,54.148.37.5/32,Netflix,no-resolves
+  - IP-CIDR,69.53.224.0/19,Netflix,no-resolve
+  - IP-CIDR,103.148.240.0/24,Netflix,no-resolve
+  - IP-CIDR,103.164.7.0/24,Netflix,no-resolve
+  - IP-CIDR,159.221.224.0/22,Netflix,no-resolve
+  - IP-CIDR,159.221.244.0/22,Netflix,no-resolve
+  - IP-CIDR,185.159.140.0/24,Netflix,no-resolve
+  - IP-CIDR,185.16.228.0/22,Netflix,no-resolve
+  - IP-CIDR,195.177.72.0/22,Netflix,no-resolve
+  - IP-CIDR,195.47.253.0/24,Netflix,no-resolve
+  - IP-CIDR,31.223.224.0/21,Netflix,no-resolve
+  - IP-CIDR,103.149.180.0/24,Netflix,no-resolve
+  - IP-CIDR,203.116.0.0/16,Netflix,no-resolve
+  - IP-CIDR,203.198.0.0/20,Netflix,no-resolve
+  - IP-CIDR,203.198.80.0/21,Netflix,no-resolve
+  - IP-CIDR,203.75.84.0/24,Netflix,no-resolve
+  - IP-CIDR,203.83.220.0/22,Netflix,no-resolve
+  - IP-CIDR,207.45.73.0/24,Netflix,no-resolve
+  - IP-CIDR,218.102.32.0/19,Netflix,no-resolve
+  - IP-CIDR,219.76.0.0/17,Netflix,no-resolve
+  - IP-CIDR,23.78.0.0/16,Netflix,no-resolve
+  - IP-CIDR,34.192.0.0/16,Netflix,no-resolve
+  - IP-CIDR,34.208.0.0/12,Netflix,no-resolve
+  - IP-CIDR,34.248.0.0/13,Netflix,no-resolve
+  - IP-CIDR,35.160.0.0/13,Netflix,no-resolve
+  - IP-CIDR,37.77.0.0/16,Netflix,no-resolve
+  - IP-CIDR,38.72.126.0/24,Netflix,no-resolve
+  - IP-CIDR,44.224.0.0/16,Netflix,no-resolve
+  - IP-CIDR,44.230.0.0/16,Netflix,no-resolve
+  - IP-CIDR,52.0.0.0/15,Netflix,no-resolve
+  - IP-CIDR,52.10.0.0/15,Netflix,no-resolve
+  - IP-CIDR,52.12.0.0/15,Netflix,no-resolve
+  - IP-CIDR,52.22.0.0/16,Netflix,no-resolve
+  - IP-CIDR,52.24.0.0/14,Netflix,no-resolve
+  - IP-CIDR,52.32.0.0/14,Netflix,no-resolve
+  - IP-CIDR,52.40.0.0/14,Netflix,no-resolve
+  - IP-CIDR,52.5.0.0/16,Netflix,no-resolve
+  - IP-CIDR,52.54.0.0/16,Netflix,no-resolve
+  - IP-CIDR,52.7.0.0/16,Netflix,no-resolve
+  - IP-CIDR,52.71.40.0/16,Netflix,no-resolve
+  - IP-CIDR,52.72.0.0/16,Netflix,no-resolve
+  - IP-CIDR,52.88.0.0/15,Netflix,no-resolve
+  - IP-CIDR,54.0.0.0/16,Netflix,no-resolve
+  - IP-CIDR,54.148.0.0/15,Netflix,no-resolve
+  - IP-CIDR,54.175.0.0/16,Netflix,no-resolve
+  - IP-CIDR,54.186.0.0/15,Netflix,no-resolve
+  - IP-CIDR,54.188.0.0/15,Netflix,no-resolve
+  - IP-CIDR,54.213.0.0/16,Netflix,no-resolve
+  - IP-CIDR,54.214.128.0/17,Netflix,no-resolve
+  - IP-CIDR,54.68.0.0/15,Netflix,no-resolve
+  - IP-CIDR,54.85.0.0/16,Netflix,no-resolve
+  - IP-CIDR,54.86.0.0/16,Netflix,no-resolve
+  - IP-CIDR,8.41.4.0/24,Netflix,no-resolve
+  - DOMAIN-SUFFIX,instagram.com,Instagram
+  - DOMAIN-SUFFIX,cdninstagram.com,Instagram
+  - DOMAIN-SUFFIX,vk.com,VK
+  - DOMAIN-SUFFIX,userapi.com,VK
+  - DOMAIN-SUFFIX,vk-portal.net,VK
+  - DOMAIN-SUFFIX,vkuservideo.net,VK
+  - DOMAIN-SUFFIX,mvk.com,VK
+  - DOMAIN-SUFFIX,vk-cdn.me,VK
+  - DOMAIN-SUFFIX,vk-cdn.net,VK
+  - DOMAIN-SUFFIX,vk.cc,VK
+  - DOMAIN-SUFFIX,vk.design,VK
+  - DOMAIN-SUFFIX,vk.link,VK
+  - DOMAIN-SUFFIX,vk.me,VK
+  - DOMAIN-SUFFIX,vk.ru,VK
+  - DOMAIN-SUFFIX,vkcache.com,VK
+  - DOMAIN-SUFFIX,vkgo.app,VK
+  - DOMAIN-SUFFIX,vklive.app,VK
+  - DOMAIN-SUFFIX,vkmessenger.com,VK
+  - DOMAIN-SUFFIX,vkmessenger.app,VK
+  - DOMAIN-SUFFIX,vkontakte.ru,VK
+  - DOMAIN-SUFFIX,vkuseraudio.com,VK
+  - DOMAIN-SUFFIX,vkuserlive.net,VK
+  - DOMAIN-SUFFIX,vkuservideo.com,VK
+  - RULE-SET,private,DIRECT
   - RULE-SET,cncidr,DIRECT,no-resolve
-  - RULE-SET,apple,DIRECT
-  - GEOSITE,apple,DIRECT
-  - GEOSITE,icloud,DIRECT
-  - DOMAIN,iosapps.itunes.apple.com,DIRECT
-  - GEOSITE,discord,Discord
-  - SCRIPT,whatsappcall,DIRECT,no-resolve
-#  - IP-CIDR,9.9.9.10,DNS,no-resolve
-#  - IP-CIDR,149.112.112.10,DNS,no-resolve
-#  - IP-CIDR,8.8.8.8,DNS,no-resolve
-#  - IP-CIDR,8.8.4.4,DNS,no-resolve
-#  - IP-CIDR,1.1.1.1,DNS,no-resolve
-#  - DOMAIN-SUFFIX,dns10.quad9.net,DNS
-  - RULE-SET,proxyrules,Main Server
+  - DOMAIN-KEYWORD,apple.com.akadns.net,DIRECT
+  - DOMAIN-KEYWORD,icloud.com.akadns.net,DIRECT
+  - DOMAIN-SUFFIX,aaplimg.com,DIRECT
+  - DOMAIN-SUFFIX,apple.co,DIRECT
+  - DOMAIN-SUFFIX,apple.com,DIRECT
+  - DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT
+  - DOMAIN-SUFFIX,apple-mapkit.com,DIRECT
+  - DOMAIN-SUFFIX,appsto.re,DIRECT
+  - DOMAIN-SUFFIX,cdn-apple.com,DIRECT
+  - DOMAIN-SUFFIX,icloud.com,DIRECT
+  - DOMAIN-SUFFIX,icloud-content.com,DIRECT
+  - DOMAIN-SUFFIX,itunes.com,DIRECT
+  - DOMAIN-SUFFIX,me.com,DIRECT
+  - DOMAIN-SUFFIX,mzstatic.com,DIRECT
+  - DOMAIN-SUFFIX,apple.news,DIRECT
+  - IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,63.92.224.0/19,DIRECT,no-resolve
+  - IP-CIDR,65.199.22.0/23,DIRECT,no-resolve
+  - IP-CIDR,139.178.128.0/18,DIRECT,no-resolve
+  - IP-CIDR,144.178.0.0/19,DIRECT,no-resolve
+  - IP-CIDR,144.178.36.0/22,DIRECT,no-resolve
+  - IP-CIDR,144.178.48.0/20,DIRECT,no-resolve
+  - IP-CIDR,192.35.50.0/24,DIRECT,no-resolve
+  - IP-CIDR,198.183.17.0/24,DIRECT,no-resolve
+  - IP-CIDR,205.180.175.0/24,DIRECT,no-resolve
   - RULE-SET,directrules,DIRECT
-  - DOMAIN-KEYWORD,tiktokcdn,TikTok #sorted out of order for better matching speed of everything else
+  - RULE-SET,gfw,MainServer
+  - RULE-SET,proxyrules,MainServer
+  - DOMAIN-KEYWORD,tiktokcdn,TikTok
+  - RULE-SET,apple,DIRECT
   - RULE-SET,rejectrules,REJECT,no-track
   - GEOIP,CN,DIRECT
   - MATCH,Final
