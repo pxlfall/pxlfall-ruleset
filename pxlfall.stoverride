@@ -1,9 +1,10 @@
 name: pxlfall's override for basic WF API
-desc: Last update on 24.10.21 04:21
+desc: Last update on 24.10.21 11:18 (V. 4)
 
 # 1. No GEOSITE anymore!
 # 2. I wonder if we can turn it into mixin for CFW tho...
-# 3. Changed DNS again, extensive testing!
+# 3. Changed DNS again, extensive testing! (added ipv6 CF to fallback, disregard DoH or DoT)
+# 4. added 1password direct, tweak dns (readded local dns cuz meituan is bugging, followrule-true), readded large FakeipFilter
 
 port: 7890 #!replace
 socks-port: 7891 #!replace
@@ -29,57 +30,85 @@ dns: #!replace
   listen: 0.0.0.0:53
   default-nameserver:
     - 114.114.114.114
+    - 223.5.5.5
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - '*.lan'
     - 'stun.*.*.*'
     - 'stun.*.*'
-    - 'time.windows.com'
-    - 'time.nist.gov'
-    - 'time.apple.com'
-    - 'time.asia.apple.com'
+    - time.windows.com
+    - time.nist.gov
+    - time.apple.com
+    - time.asia.apple.com
     - '*.ntp.org.cn'
     - '*.openwrt.pool.ntp.org'
-    - 'time1.cloud.tencent.com'
-    - 'time.ustc.edu.cn'
-    - 'pool.ntp.org'
-    - 'ntp.ubuntu.com'
-    - 'ntp.aliyun.com'
-    - 'ntp1.aliyun.com'
-    - 'ntp2.aliyun.com'
-    - 'ntp3.aliyun.com'
-    - 'ntp4.aliyun.com'
-    - 'ntp5.aliyun.com'
-    - 'ntp6.aliyun.com'
-    - 'ntp7.aliyun.com'
-    - 'time1.aliyun.com'
-    - 'time2.aliyun.com'
-    - 'time3.aliyun.com'
-    - 'time4.aliyun.com'
-    - 'time5.aliyun.com'
-    - 'time6.aliyun.com'
-    - 'time7.aliyun.com'
+    - time1.cloud.tencent.com
+    - time.ustc.edu.cn
+    - pool.ntp.org
+    - ntp.ubuntu.com
+    - ntp.aliyun.com
+    - ntp1.aliyun.com
+    - ntp2.aliyun.com
+    - ntp3.aliyun.com
+    - ntp4.aliyun.com
+    - ntp5.aliyun.com
+    - ntp6.aliyun.com
+    - ntp7.aliyun.com
+    - time1.aliyun.com
+    - time2.aliyun.com
+    - time3.aliyun.com
+    - time4.aliyun.com
+    - time5.aliyun.com
+    - time6.aliyun.com
+    - time7.aliyun.com
     - '*.time.edu.cn'
-    - 'time1.apple.com'
-    - 'time2.apple.com'
-    - 'time3.apple.com'
-    - 'time4.apple.com'
-    - 'time5.apple.com'
-    - 'time6.apple.com'
-    - 'time7.apple.com'
-    - 'time1.google.com'
-    - 'time2.google.com'
-    - 'time3.google.com'
-    - 'time4.google.com'
+    - time1.apple.com
+    - time2.apple.com
+    - time3.apple.com
+    - time4.apple.com
+    - time5.apple.com
+    - time6.apple.com
+    - time7.apple.com
+    - time1.google.com
+    - time2.google.com
+    - time3.google.com
+    - time4.google.com
+    - music.163.com
+    - '*.music.163.com'
+    - '*.126.net'
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - '*.kuwo.cn'
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - '*.y.qq.com'
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - '*.xiami.com'
+    - '*.music.migu.cn'
+    - music.migu.cn
     - '*.msftconnecttest.com'
     - '*.msftncsi.com'
+    - localhost.ptlogin2.qq.com
     - '*.*.*.srv.nintendo.net'
     - '*.*.stun.playstation.net'
     - 'xbox.*.*.microsoft.com'
     - '*.ipv6.microsoft.com'
     - '*.*.xboxlive.com'
-    - 'speedtest.cros.wr.pvp.net'
+    - speedtest.cros.wr.pvp.net
+    - '+.tripcdn.com'
+    - '+.trip.com'
+    - '+.aliyuncs.com'
+    - '*.discord.media'
   nameserver:
     - 114.114.114.114
     - 223.5.5.5
@@ -111,7 +140,7 @@ dns: #!replace
     '+.tiktokv.com': '8.8.8.8'
     '+.atkgirlfriends.com': 'https://1.1.1.1/dns-query'
     '+.aliyuncs.com': 'https://dns10.quad9.net/dns-query'
-  follow-rule: false
+  follow-rule: true
 rule-providers: #!replace
   directrules:
     behavior: domain
@@ -945,6 +974,24 @@ rules: #!replace
   - IP-CIDR,54.85.0.0/16,Netflix,no-resolve
   - IP-CIDR,54.86.0.0/16,Netflix,no-resolve
   - IP-CIDR,8.41.4.0/24,Netflix,no-resolve
+  - DOMAIN-SUFFIX,1password.com,DIRECT #1password
+  - DOMAIN-SUFFIX,1password.ca,DIRECT #1password
+  - DOMAIN-SUFFIX,1password.eu,DIRECT #1password
+  - DOMAIN-SUFFIX,1passwordservies.com,DIRECT #1password
+  - DOMAIN-SUFFIX,1passwordusercontent.com,DIRECT #1password
+  - DOMAIN-SUFFIX,1passwordusercontent.ca,DIRECT #1password
+  - DOMAIN-SUFFIX,1passwordusercontent.eu,DIRECT #1password
+  - DOMAIN-SUFFIX,app-updates.agilebits.com,DIRECT #1password
+  - DOMAIN-SUFFIX,1infra.net,DIRECT #1password
+  - DOMAIN-SUFFIX,cache.agilebits.com,DIRECT #1password
+  - DOMAIN-SUFFIX,in.appcenter.ms,DIRECT #1password
+  - DOMAIN-SUFFIX,accounts.brex.com,DIRECT #1password
+  - DOMAIN-SUFFIX,platform.brex.com,DIRECT #1password
+  - DOMAIN-SUFFIX,globalsign.com,DIRECT #1password
+  - DOMAIN-SUFFIX,fastmail.com,DIRECT #1password
+  - DOMAIN-SUFFIX,lastpass.com,DIRECT #1password
+  - DOMAIN-SUFFIX,api.privacy.com,DIRECT #1password
+  - DOMAIN-SUFFIX,api.pwnedpasswords.com,DIRECT #1password
   - DOMAIN-SUFFIX,instagram.com,Instagram
   - DOMAIN-SUFFIX,cdninstagram.com,Instagram
   - DOMAIN-SUFFIX,vk.com,VK
