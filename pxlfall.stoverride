@@ -1,10 +1,11 @@
 name: pxlfall's override for basic WF API
-desc: Last update on 24.10.21 11:18 (V. 4)
+desc: Last update on 24.10.21 11:20 (V. 5)
 
 # 1. No GEOSITE anymore!
 # 2. I wonder if we can turn it into mixin for CFW tho...
 # 3. Changed DNS again, extensive testing! (added ipv6 CF to fallback, disregard DoH or DoT)
 # 4. added 1password direct, tweak dns (readded local dns cuz meituan is bugging, followrule-true), readded large FakeipFilter
+# 5. follow rule DISABLE
 
 port: 7890 #!replace
 socks-port: 7891 #!replace
@@ -140,7 +141,7 @@ dns: #!replace
     '+.tiktokv.com': '8.8.8.8'
     '+.atkgirlfriends.com': 'https://1.1.1.1/dns-query'
     '+.aliyuncs.com': 'https://dns10.quad9.net/dns-query'
-  follow-rule: true
+  follow-rule: false
 rule-providers: #!replace
   directrules:
     behavior: domain
