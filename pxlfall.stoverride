@@ -1,5 +1,5 @@
 name: pxlfall's override for basic WF API
-desc: Last update on 24.10.21 11:20 (V. 5)
+desc: Last update on 24.12.16 16:23 (V. 6)
 
 # 1. No GEOSITE anymore!
 # 2. I wonder if we can turn it into mixin for CFW tho...
@@ -1044,6 +1044,7 @@ rules: #!replace
   - IP-CIDR,198.183.17.0/24,DIRECT,no-resolve
   - IP-CIDR,205.180.175.0/24,DIRECT,no-resolve
   - RULE-SET,directrules,DIRECT
+  - DOMAIN-SUFFIX,api.ip.sb,DIRECT
   - RULE-SET,gfw,MainServer
   - RULE-SET,proxyrules,MainServer
   - DOMAIN-KEYWORD,tiktokcdn,TikTok
