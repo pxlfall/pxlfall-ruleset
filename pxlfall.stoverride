@@ -7,7 +7,7 @@ redir-port: 7892 #!replace
 mixed-port: 7893 #!replace
 allow-lan: false #!replace
 mode: rule #!replace
-log-level: warning #!replace
+# log-level: warning #!replace
 ipv6: true #!replace
 script: #!replace
   shortcuts:
@@ -809,7 +809,7 @@ rules: #!replace
   - DOMAIN-SUFFIX,youtubekids.com,YouTube
   - DOMAIN-SUFFIX,youtubemobilesupport.com,YouTube
   - DOMAIN-SUFFIX,yt.be,YouTube
-  - DOMAIN-SUFFIX,wechat.com,DIRECT
+  - DOMAIN-SUFFIX,wechat.com,DIRECT # WeChat
   - DOMAIN-SUFFIX,qpic.cn,DIRECT
   - DOMAIN-SUFFIX,wechatpay.cn,DIRECT
   - DOMAIN-SUFFIX,qlogo.cn,DIRECT
@@ -824,7 +824,7 @@ rules: #!replace
   - DOMAIN-SUFFIX,xdow.net,DIRECT
   - DOMAIN-KEYWORD,weixin,DIRECT
   - DOMAIN-KEYWORD,wechat,DIRECT
-  - IP-CIDR,43.129.255.38/18,DIRECT,no-resolve
+  - IP-CIDR,43.129.255.38/18,DIRECT,no-resolve # I think that's WeChat IP-CIDR
   - IP-CIDR,129.206.106.198/16,DIRECT,no-resolve
   - IP-CIDR,129.226.106.198/20,DIRECT,no-resolve
   - IP-CIDR,120.232.51.42/16,DIRECT,no-resolve
@@ -859,6 +859,7 @@ rules: #!replace
   - DOMAIN-SUFFIX,wannaflix.net,DIRECT
   - DOMAIN-SUFFIX,wannaflix.link,DIRECT
   - DOMAIN-SUFFIX,wannaflix.com,MainServer
+  - DOMAIN,api.ip.sb,Main Server # Stash connection info page IP address and location resolver
   - DOMAIN,itunes.apple.com,DIRECT
   - RULE-SET,tiktok,TikTok
   - DOMAIN-KEYWORD,trip.com,DIRECT
@@ -1028,7 +1029,6 @@ rules: #!replace
   - IP-CIDR,198.183.17.0/24,DIRECT,no-resolve
   - IP-CIDR,205.180.175.0/24,DIRECT,no-resolve
   - RULE-SET,directrules,DIRECT
-  - DOMAIN-SUFFIX,api.ip.sb,DIRECT
   - RULE-SET,gfw,MainServer
   - RULE-SET,proxyrules,MainServer
   - DOMAIN-KEYWORD,tiktokcdn,TikTok
