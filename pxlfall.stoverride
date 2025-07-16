@@ -859,7 +859,7 @@ rules: #!replace
   - DOMAIN-SUFFIX,wannaflix.net,DIRECT
   - DOMAIN-SUFFIX,wannaflix.link,DIRECT
   - DOMAIN-SUFFIX,wannaflix.com,MainServer
-  - DOMAIN,api.ip.sb,Main Server # Stash connection info page IP address and location resolver
+  - DOMAIN,api.ip.sb,MainServer # Stash connection info page IP address and location resolver
   - DOMAIN,itunes.apple.com,DIRECT
   - RULE-SET,tiktok,TikTok
   - DOMAIN-KEYWORD,trip.com,DIRECT
