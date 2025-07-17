@@ -1,5 +1,5 @@
 name: pxlfall's override for basic WF API
-desc: Last update on 2024.12.28 16:23 (V. 7)
+desc: Last update on 2025.07.17 09:38 (V. 7.1)
 
 port: 7890 #!replace
 socks-port: 7891 #!replace
@@ -7,11 +7,11 @@ redir-port: 7892 #!replace
 mixed-port: 7893 #!replace
 allow-lan: false #!replace
 mode: rule #!replace
-# log-level: warning #!replace
+log-level: warning #!replace
 ipv6: true #!replace
-script: #!replace
-  shortcuts:
-    udp-relay-disable: network == 'udp'
+# script: #!replace
+#  shortcuts:
+#    udp-relay-disable: network == 'udp'
 hosts: #!replace
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
@@ -138,10 +138,8 @@ dns: #!replace
     '+.nhentai.net': 'https://dns10.quad9.net/dns-query'
     '+.hanime.tv': 'https://dns10.quad9.net/dns-query'
     '+.atkingdom-network.com': 'https://dns10.quad9.net/dns-query'
-    '+.hnytkm.com': '114.114.114.114'
-    '+.teacher2040.com': '114.114.114.114'
+  follow-rule: false
 
-  follow-rule: true
 rule-providers: #!replace
   directrules:
     behavior: domain
@@ -792,7 +790,6 @@ proxy-groups: #!replace
       - MainServer
       - DIRECT
 rules: #!replace
-  # - IP-CIDR,114.114.114.114/32,DIRECT,no-resolve
   - RULE-SET,google,MainServer
   - DOMAIN,yt3.ggpht.com,YouTube
   - DOMAIN-SUFFIX,youtube-nocookie.com,YouTube
@@ -878,7 +875,9 @@ rules: #!replace
   - RULE-SET,telegramcidr,Telegram,no-resolve #no need to resolve IP adresses
   - RULE-SET,telegramdomain,Telegram
   - RULE-SET,lancidr,DIRECT,no-resolve
-  - SCRIPT,udp-relay-disable,DIRECT,no-resolve
+  - PROTOCOL,UDP,DIRECT,no-resolve
+  - PROTOCOL,QUIC,REJECT,no-resolve
+#  - SCRIPT,udp-relay-disable,DIRECT,no-resolve
   - DOMAIN-SUFFIX,atkingdom-network.com,MainServer
   - DOMAIN-SUFFIX,atkgirlfriends.net,MainServer
   - DOMAIN-SUFFIX,nhentai.net,MainServer
@@ -1041,8 +1040,8 @@ rules: #!replace
   - RULE-SET,directrules,DIRECT
   - RULE-SET,gfw,MainServer
   - RULE-SET,proxyrules,MainServer
-  - DOMAIN-KEYWORD,tiktokcdn,TikTok
   - RULE-SET,apple,DIRECT
+  - DOMAIN-KEYWORD,tiktokcdn,TikTok
   - RULE-SET,rejectrules,REJECT,no-track
-  - GEOIP,CN,DIRECT
-  - MATCH,Final
+  - GEOIP,CN,DIRECT,no-resolve
+  - MATCH,MainServer
