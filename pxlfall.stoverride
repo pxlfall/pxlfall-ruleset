@@ -1045,6 +1045,6 @@ rules: #!replace
   - RULE-SET,apple,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok
   - RULE-SET,rejectrules,REJECT,no-track
-	- DOMAIN-SUFFIX,airstarbank.com,DIRECT
+  - DOMAIN-SUFFIX,airstarbank.com,DIRECT
   - GEOIP,CN,DIRECT,no-resolve
   - MATCH,MainServer
