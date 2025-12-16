@@ -197,8 +197,6 @@ proxy-groups: #!replace
   - name: MainServer
     type: select
     proxies:
-      - '[CHINA] CDU - TEST SERVER'
-      - '[SS] [CHINA] CDU - TEST SERVER [IPV6 ONLY]'
       - '[SS] [CHINA] Daily Usage 1 (Recommended)'
       - '[SS] [CHINA] Daily Usage 2 (Recommended)'
       - '[SS] [CHINA] Daily Usage 3 (Recommended)'
