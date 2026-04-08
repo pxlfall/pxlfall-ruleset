@@ -1,5 +1,5 @@
-name: pxlfall's override for basic WF API
-desc: Last update on 2025.08.21 17:17 (V.8)
+name: pxlfall's override for Simple WF API
+desc: Last update on 2026.04.08 15:35 (V.9)
 
 port: 7890 #!replace
 socks-port: 7891 #!replace
@@ -9,9 +9,9 @@ allow-lan: false #!replace
 mode: rule #!replace
 log-level: warning #!replace
 ipv6: true #!replace
-# script: #!replace
-#  shortcuts:
-#    udp-relay-disable: network == 'udp'
+script: #!replace
+  shortcuts:
+    udp-relay-disable: network == 'udp'
 hosts: #!replace
   '*.clash.dev': 127.0.0.1
   'alpha.clash.dev': '::1'
@@ -196,479 +196,70 @@ rule-providers: #!replace
 proxy-groups: #!replace
   - name: MainServer
     type: select
-    proxies:
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
+    include-all: true
   - name: Netflix
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Netflix.png'
     proxies:
       - MainServer
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
+      - DIRECT
+    include-all: true
   - name: TikTok
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/TikTok.png'
     proxies:
       - MainServer
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
+      - DIRECT
+    include-all: true
   - name: YouTube
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/YouTube.png'
     proxies:
       - MainServer
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
+      - DIRECT
+    include-all: true
   - name: Telegram
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Telegram.png'
     proxies:
       - MainServer
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
+      - DIRECT
+    include-all: true
   - name: Spotify
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Spotify.png'
     proxies:
-      - MainServer
       - DIRECT
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
+      - MainServer
+    include-all: true
   - name: OpenAI
     type: select
     icon: 'https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/icons/openai.png'
+    include-all: true
     proxies:
       - MainServer
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
+      - DIRECT
   - name: WhatsApp
     type: select
     icon: 'https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/icons/whatsapp.png'
     proxies:
       - MainServer
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
+      - DIRECT
+    include-all: true
   - name: Instagram
     type: select
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Instagram.png'
     proxies:
       - MainServer
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
+      - DIRECT
+    include-all: true
   - name: VK
     type: select
     icon: 'https://cdn.jsdelivr.net/gh/pxlfall/pxlfall-ruleset@refs/heads/newera/icons/vk.png'
     proxies:
       - MainServer
       - DIRECT
-      - '[SS] [CHINA] Daily Usage 1 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 2 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 3 (Recommended)'
-      - '[SS] [CHINA] Daily Usage 4 (Recommended)'
-      - '[SS] [CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[SS] [CHINA] US Los Angeles NETFLIX'
-      - '[SS] [CHINA] US New York NETFLIX'
-      - '[SS] [CHINA] UK NETFLIX / BBC iPlayer'
-      - '[SS] [CHINA] Australia NETFLIX'
-      - '[SS] [CHINA] Brazil NETFLIX'
-      - '[SS] [CHINA] Canada NETFLIX'
-      - '[SS] [CHINA] France NETFLIX'
-      - '[SS] [CHINA] Germany NETFLIX'
-      - '[SS] [CHINA] Netherlands NETFLIX'
-      - '[SS] [CHINA] Hong Kong NETFLIX'
-      - '[SS] [CHINA] Japan NETFLIX'
-      - '[SS] [CHINA] Korea NETFLIX'
-      - '[SS] [CHINA] Singapore NETFLIX'
-      - '[SS] [CHINA] Taiwan NETFLIX'
-      - '[SS] [CHINA] India NETFLIX'
-      - '[SS] [CHINA] South Africa NETFLIX'
-      - '[CHINA] Daily Usage 1 (Recommended)'
-      - '[CHINA] Daily Usage 2 (Recommended)'
-      - '[CHINA] Daily Usage 3 (Recommended)'
-      - '[CHINA] Daily Usage 4 (Recommended)'
-      - '[CHINA] STREAMING NETFLIX US / Hulu / Prime / BBC / Spotify'
-      - '[CHINA] US Los Angeles NETFLIX'
-      - '[CHINA] US New York NETFLIX'
-      - '[CHINA] UK NETFLIX / BBC iPlayer'
-      - '[CHINA] Australia NETFLIX'
-      - '[CHINA] Brazil NETFLIX'
-      - '[CHINA] Canada NETFLIX'
-      - '[CHINA] France NETFLIX'
-      - '[CHINA] Germany NETFLIX'
-      - '[CHINA] Netherlands NETFLIX'
-      - '[CHINA] Hong Kong NETFLIX'
-      - '[CHINA] Japan NETFLIX'
-      - '[CHINA] Korea NETFLIX'
-      - '[CHINA] Singapore NETFLIX'
-      - '[CHINA] Taiwan NETFLIX'
-      - '[CHINA] India NETFLIX'
-      - '[CHINA] South Africa NETFLIX'
-  - name: Final
-    type: select
-    proxies:
-      - MainServer
-      - DIRECT
+    include-all: true
 rules: #!replace
   - RULE-SET,google,MainServer
   - DOMAIN,yt3.ggpht.com,YouTube
@@ -757,7 +348,7 @@ rules: #!replace
   - RULE-SET,lancidr,DIRECT,no-resolve
   - PROTOCOL,UDP,DIRECT,no-resolve
   - PROTOCOL,QUIC,DIRECT,no-resolve
-#  - SCRIPT,udp-relay-disable,DIRECT,no-resolve
+  - SCRIPT,udp-relay-disable,DIRECT,no-resolve
   - DOMAIN-SUFFIX,atkingdom-network.com,MainServer
   - DOMAIN-SUFFIX,atkgirlfriends.net,MainServer
   - DOMAIN-SUFFIX,nhentai.net,MainServer
@@ -907,7 +498,7 @@ rules: #!replace
   - DOMAIN-SUFFIX,me.com,DIRECT
   - DOMAIN-SUFFIX,mzstatic.com,DIRECT
   - DOMAIN-SUFFIX,apple.news,DIRECT
-  - IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,17.0.0.0/8,DIRECT
   - IP-CIDR,63.92.224.0/19,DIRECT,no-resolve
   - IP-CIDR,65.199.22.0/23,DIRECT,no-resolve
   - IP-CIDR,139.178.128.0/18,DIRECT,no-resolve
@@ -922,7 +513,7 @@ rules: #!replace
   - RULE-SET,proxyrules,MainServer
   - RULE-SET,apple,DIRECT
   - DOMAIN-KEYWORD,tiktokcdn,TikTok
-  - RULE-SET,rejectrules,REJECT,no-track
+  - RULE-SET,rejectrules,REJECT
   - DOMAIN-SUFFIX,airstarbank.com,DIRECT
   - GEOIP,CN,DIRECT,no-resolve
   - MATCH,MainServer
